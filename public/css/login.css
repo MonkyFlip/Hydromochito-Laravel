@@ -1,0 +1,284 @@
+/* Fondo del video */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra toda el área sin distorsión */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+/* -------- General (Body) -------- */
+body {
+    background-color: #F1FAFA; /* Fondo principal */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para centrar verticalmente */
+}
+
+/* -------- Contenedor Principal -------- */
+.login-container {
+    background-color: #DCF1F0; /* Fondo del contenedor */
+    border: 2px solid #BDE4E3; /* Borde */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    width: 90%; /* Se ajusta al 90% del ancho */
+    max-width: 400px; /* Ancho máximo */
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    margin: auto; /* Centrado horizontal y vertical */
+    z-index: 1;
+}
+
+/* -------- Encabezado -------- */
+h1 {
+    color: #3E9A9C; /* Azul verdoso */
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* -------- Círculo del Logo -------- */
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #BDE4E3; /* Fondo */
+    border-radius: 50%; /* Forma redonda */
+    margin: -70px auto 20px; /* Superposición */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.logo-circle img {
+    width: 60%; /* Tamaño del logo */
+    height: auto; /* Mantiene proporciones */
+    object-fit: cover; /* Ajusta sin distorsión */
+}
+
+/* -------- Botones -------- */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre botones */
+}
+
+button.btn-primary {
+    background-color: #8BD0CF; /* Azul verdoso */
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+    background-color: #59B6B7; /* Hover */
+}
+
+button.btn-secondary {
+    background-color: #BDE4E3;
+    border: none;
+    color: #3E9A9C;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-secondary:hover {
+    background-color: #8BD0CF;
+}
+
+/* Estilo para el botón "Regresar" */
+button.btn-light,
+a.btn-light {
+    background-color: #F3FAF8; /* Fondo claro en armonía con los colores existentes */
+    border: 1px solid #BDE4E3; /* Borde sutil */
+    color: #3E9A9C; /* Texto */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+button.btn-light:hover,
+a.btn-light:hover {
+    background-color: #E2F7F5; /* Hover: Fondo un poco más oscuro */
+    color: #59B6B7; /* Hover: Color de texto */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Hover: Sombra mejorada */
+}
+
+.recover-password {
+    color: #59B6B7;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.recover-password:hover {
+    text-decoration: underline;
+}
+
+/* -------- Modales Generales (Responsive) -------- */
+.modal-content {
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    width: 90%; /* Responsivo */
+    max-width: 500px; /* Ancho máximo */
+    margin: auto;
+}
+
+.modal-content#loginModal {
+    background-color: #E8F0FE; /* Fondo azul claro */
+    border: 3px solid #A7C7E7; /* Borde vibrante */
+    border-radius: 15px; /* Bordes redondeados elegantes */
+}
+
+.modal-content#loginModal h5 {
+    color: #2B6FC3; /* Azul fuerte */
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center; /* Centrado */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+.modal-footer button.btn-primary {
+    background-color: #4A90E2; /* Azul vibrante */
+    border: none;
+    color: #FFFFFF;
+    border-radius: 20px; /* Bordes circulares */
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-footer button.btn-primary:hover {
+    background-color: #2869B2; /* Azul más profundo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+}
+
+/* -------- Modal Registrar (Tercera Fila de Colores) -------- */
+.modal-content#registerModal {
+    background-color: #FFF7ED; /* Fondo */
+    border: 2px solid #FFD8A8; /* Borde */
+}
+
+.modal-content#registerModal h5 {
+    color: #FE7311; /* Título */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.modal-footer button.btn-primary {
+    background-color: #FFBB71; /* Botón */
+    border: none;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-footer button.btn-primary:hover {
+    background-color: #FF9338; /* Hover */
+}
+
+/* -------- Modal Recuperar Contraseña -------- */
+/* Modal Recuperar Contraseña - Sinbad y Hippie Green */
+.modal-content#recoverPasswordModal {
+    background: linear-gradient(135deg, #DCF1F0, #EAF2E6); /* Gradiente suave de ambos tonos */
+    border: 3px solid #B4CDA8; /* Borde verde pastel */
+    border-radius: 20px; /* Bordes más circulares */
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra moderna */
+}
+
+.modal-header {
+    border-bottom: 1px solid #D6E3CF; /* Línea divisoria verde pastel */
+}
+
+.modal-title {
+    color: #3E9A9C; /* Azul vibrante */
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-body label {
+    color: #6A9057; /* Verde medio */
+    font-weight: 500;
+}
+
+.modal-footer button.btn-primary {
+    background-color: #8BD0CF; /* Azul pastel */
+    border: none;
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-footer button.btn-primary:hover {
+    background-color: #59B6B7; /* Azul más intenso */
+    transform: scale(1.05); /* Animación de zoom */
+}
+
+.modal-footer button.btn-secondary {
+    background-color: #B4CDA8; /* Verde pastel */
+    border: none;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 12px 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-footer button.btn-secondary:hover {
+    background-color: #8CAD7B; /* Verde más oscuro */
+    transform: scale(1.05); /* Animación de zoom */
+}
+
+/* -------- Responsividad -------- */
+@media (max-width: 768px) {
+    .login-container {
+        width: 95%; /* Más ancho en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Reduce el tamaño del título */
+    }
+
+    button {
+        font-size: 14px; /* Reduce el tamaño del texto de los botones */
+        padding: 8px 15px; /* Ajusta el padding */
+    }
+
+    .logo-circle {
+        width: 80px; /* Reduce el tamaño del logo */
+        height: 80px;
+    }
+
+    .logo-circle img {
+        width: 50%; /* Ajusta el tamaño del logo */
+    }
+}

@@ -1,0 +1,195 @@
+/* Estilos para el Navigation Bar */
+nav.navbar {
+    background-color: #6a7bb6; /* Color de fondo */
+    padding: 10px 20px; /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos para el logotipo y nombre de la PMV */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Color del texto */
+    font-size: 1.5em; /* Tamaño de fuente */
+    font-weight: bold; /* Grosor de la fuente */
+    text-decoration: none; /* Quitar subrayado */
+}
+
+.navbar-brand img {
+    height: 60px; /* Tamaño del logotipo */
+    margin-right: 10px; /* Espacio entre el logotipo y el texto */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Barra de búsqueda */
+.navbar form.d-flex {
+    background-color: #e3f2fd; /* Azul claro pastel */
+    border: 1px solid #90caf9; /* Borde azul claro */
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* Campo de texto */
+.navbar form.d-flex input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    color: #1565c0; /* Azul intenso */
+}
+
+/* Botón de buscar */
+.navbar form.d-flex button {
+    background-color: #42a5f5; /* Azul vibrante */
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Botón de reset */
+.navbar form.d-flex button[type="reset"] {
+    background-color: #ef5350; /* Rojo suave */
+    margin-left: 5px;
+}
+
+/* Hover y Active */
+.navbar form.d-flex button:hover {
+    transform: translateY(-2px);
+    background-color: #1e88e5; /* Azul profundo */
+}
+
+.navbar form.d-flex button:active {
+    transform: translateY(2px);
+    background-color: #1565c0; /* Azul más oscuro */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos para los botones del menú */
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-left: 20px; /* Espacio entre los enlaces del menú */
+    text-decoration: none; /* Quitar subrayado */
+    transition: transform 0.2s; /* Animación de transición */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    text-decoration: none; /* Quitar subrayado */
+    transform: translateY(-2px); /* Mover hacia arriba */
+}
+
+.navbar-nav .nav-item .nav-link:active {
+    transform: translateY(2px); /* Mover hacia abajo */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo para el contenedor del saludo personalizado */
+.navbar-text {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; /* Blanco */
+    background-color: #6c80ce; /* Azul intenso */
+    padding: 10px 15px;
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center;
+    margin-right: 20px; /* Separación a la derecha */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transición fluida */
+}
+
+/* Animación en el contenedor completo al pasar el cursor */
+.navbar-text:hover {
+    background-color: #6c80ce; /* Fondo Azul intenso */
+    transform: translateY(-5px) scale(1.05); /* Elevar y agrandar ligeramente */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+}
+
+/* Restaurar al estado original al quitar el cursor */
+.navbar-text:active {
+    transform: translateY(0) scale(1); /* Regresar a su tamaño original */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original */
+}
+
+/* Quitar subrayado del texto */
+.navbar-text span {
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Asegurar que el texto sea tratable como bloque */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos para los menús desplegables */
+.dropdown-menu {
+    background-color: #E3F2FD; /* Azul pastel claro */
+    border: 1px solid #BBDEFB; /* Borde azul claro */
+}
+
+.dropdown-menu .dropdown-item {
+    color: #1565C0; /* Azul oscuro */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Animación de transición */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #BBDEFB; /* Fondo azul pastel claro */
+    color: #0D47A1; /* Azul profundo */
+    transform: translateY(-2px); /* Mover hacia arriba */
+}
+
+.dropdown-menu .dropdown-item:active {
+    transform: translateY(2px); /* Mover hacia abajo */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo para mostrar el submenú cuando se agrega la clase 'show' */
+.dropdown-submenu .dropdown-menu {
+    display: none;
+}
+
+.dropdown-submenu.show .dropdown-menu {
+    display: block;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos específicos para los botones de Exportar Excel */
+.dropdown-item-excel {
+    color: #00796b; /* Color del texto verde oscuro */
+}
+
+.dropdown-item-excel:hover {
+    background-color: green;
+    color: white;
+}
+
+.dropdown-item-excel:hover i {
+    color: white;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos específicos para los botones de Exportar PDF */
+.dropdown-item-pdf {
+    color: red; /* Color del texto rojo */
+}
+
+.dropdown-item-pdf:hover {
+    background-color: red;
+    color: white;
+}
+
+.dropdown-item-pdf:hover i {
+    color: white;
+}

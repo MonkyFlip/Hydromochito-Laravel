@@ -1,0 +1,725 @@
+body {
+    background-color: #F6E8DF; /* Arena clara */
+    font-family: Arial, sans-serif;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Paginación */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    border-radius: 0.25rem;
+}
+
+.pagination li {
+    margin: 0 0.25rem;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #F5F3F2; /* Texto claro */
+    text-decoration: none;
+    background-color: #AC8863; /* Kabul 400 */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li a:hover,
+.pagination li span:hover {
+    background-color: #9D7655; /* Kabul 500 */
+    color: #F5F3F2; /* Texto claro */
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.active a,
+.pagination li.active span {
+    z-index: 1;
+    color: #FFFFFF; /* Texto blanco */
+    background-color: #B9977E; /* Arbusto de perlas 400 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.disabled span {
+    color: #6c757d; /* Gris deshabilitado */
+    pointer-events: none;
+    background-color: #ECE4DB; /* Arbusto de perlas 100 */
+    border: none;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Números de página */
+.pagination li a.page-link,
+.pagination li span.page-link {
+    background-color: #E8E2E0; /* Café suizo 200 */
+    border: 1px solid #D7CCC8; /* Café suizo 300 */
+    color: #78645D; /* Café suizo 700 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.pagination li a.page-link:hover,
+.pagination li span.page-link:hover {
+    background-color: #A89388; /* Café suizo 500 */
+    border-color: #907A72; /* Café suizo 600 */
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.active a.page-link,
+.pagination li.active span.page-link {
+    background-color: #78645D; /* Café suizo 700 */
+    border-color: #65554F; /* Café suizo 800 */
+    color: white;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Botón de Agregar Registro */
+.btn-success {
+    position: relative;
+    overflow: hidden;
+    background-color: #8F5E3D; /* Café cálido */
+    border-color: #8F5E3D;
+    color: white; /* Texto blanco */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover */
+.btn-success:hover {
+    background-color: #A1887F; /* Beige cálido */
+    border-color: #A1887F;
+    transform: translateY(-3px);
+}
+
+/* Efecto de foco/presión */
+.btn-success:active {
+    background-color: #6D4C41; /* Café oscuro */
+    border-color: #6D4C41;
+    transform: translateY(0);
+}
+
+/* Efecto de sombra */
+.btn-success::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn-success:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+/* Estilo para el ícono y el texto dentro del botón */
+.btn-success i,
+.btn-success span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Personalización de .btn-success con tonos café y beige */
+.btn-success {
+    --bs-btn-color: #fff; /* Texto blanco */
+    --bs-btn-bg: #8F5E3D; /* Café cálido */
+    --bs-btn-border-color: #8F5E3D; /* Borde café cálido */
+    --bs-btn-hover-color: #fff; /* Texto blanco en hover */
+    --bs-btn-hover-bg: #A1887F; /* Beige cálido en hover */
+    --bs-btn-hover-border-color: #A1887F; /* Borde beige cálido en hover */
+    --bs-btn-focus-shadow-rgb: 161, 136, 127; /* Sombra beige */
+    --bs-btn-active-color: #fff; /* Texto blanco al presionar */
+    --bs-btn-active-bg: #6D4C41; /* Café oscuro al presionar */
+    --bs-btn-active-border-color: #6D4C41; /* Borde café oscuro al presionar */
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(109, 76, 65, 0.125); /* Sombra interna al presionar */
+    --bs-btn-disabled-color: #fff; /* Texto blanco para botones deshabilitados */
+    --bs-btn-disabled-bg: #D7CCC8; /* Beige claro para deshabilitados */
+    --bs-btn-disabled-border-color: #D7CCC8; /* Borde beige claro */
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+    color: var(--bs-btn-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efectos de hover para .btn-success */
+.btn-success:hover {
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+    transform: translateY(-3px);
+}
+
+/* Efectos de foco/presión para .btn-success */
+.btn-success:active {
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+    transform: translateY(0);
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo para la tabla */
+.table {
+    background-color: #F5F3F2; /* Blanco cálido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #D7CCC8; /* Borde beige claro */
+}
+
+/* Encabezado de la tabla */
+.table thead th {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Fila de la tabla */
+.table tbody tr {
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el estado normal */
+}
+
+/* Fila al pasar el cursor */
+.table tbody tr:hover {
+    background-color: #EDE9E6; /* Beige pastel al pasar el cursor */
+    transform: scale(1.01); /* Mantener el escalado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Celdas de la tabla */
+.table td, .table th {
+    border: none; /* Sin bordes */
+    padding: 12px 15px;
+    text-align: left; /* Alinear el texto a la izquierda */
+    vertical-align: middle; /* Centrar el contenido verticalmente */
+    white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+    overflow-x: hidden; /* Ocultar el desplazamiento horizontal */
+    position: relative;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo para los botones de acciones */
+.btn-action {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover */
+.btn-action:hover {
+    transform: translateY(-3px); /* Elevar al pasar el cursor */
+}
+
+/* Efecto de foco (cuando se presiona el botón) */
+.btn-action:active {
+    transform: translateY(0); /* Regresar a su posición original */
+}
+
+/* Efecto de sombra */
+.btn-action::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn-action:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+/* Estilo para el ícono y el texto dentro del botón */
+.btn-action i,
+.btn-action span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Colores específicos para cada botón de acción */
+
+/* Botón Primario (Editar o Acciones Principales) */
+.btn-primary {
+    background-color: #8F5E3D; /* Café cálido */
+    border-color: #8F5E3D;
+    color: white; /* Texto blanco */
+}
+
+.btn-primary:hover {
+    background-color: #A1887F; /* Beige cálido */
+    border-color: #A1887F;
+}
+
+/* Botón de Advertencia (Precaución) */
+.btn-warning {
+    background-color: #EFD299; /* Beige suave */
+    border-color: #EFD299;
+    color: #5D4037; /* Café oscuro */
+}
+
+.btn-warning:hover {
+    background-color: #D3B381; /* Beige oscuro */
+    border-color: #D3B381;
+}
+
+/* Botón de Peligro (Eliminar o Acción Crítica) */
+.btn-danger {
+    background-color: #D32F2F; /* Rojo vibrante */
+    border-color: #D32F2F;
+    color: white; /* Texto blanco */
+}
+
+.btn-danger:hover {
+    background-color: #B71C1C; /* Rojo oscuro */
+    border-color: #B71C1C;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+    .btn-action {
+        margin: 2px;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/*---------------------------------------------------------------------------------------*/
+/* Estilos para el Modal de Aviso */
+
+/* Estilo general para el texto del modal de aviso */
+.modal-aviso .modal-body p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Modal café cálido para creación exitosa */
+.modal-aviso-success .modal-header {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo para el texto en el modal verde */
+.modal-aviso-success .modal-body p {
+    color: #8F5E3D; /* Texto en café cálido */
+}
+
+.modal-aviso-success .modal-footer {
+    background-color: #EDE9E6; /* Beige pastel */
+    border-top: none;
+}
+
+/* Modal beige cálido para edición exitosa */
+.modal-aviso-warning .modal-header {
+    background-color: #EFD299; /* Beige cálido */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo para el texto en el modal amarillo */
+.modal-aviso-warning .modal-body p {
+    color: #EFD299; /* Texto en beige cálido */
+}
+
+.modal-aviso-warning .modal-footer {
+    background-color: #F5F3F2; /* Blanco cálido */
+    border-top: none;
+}
+
+/* Modal naranja cálido para eliminación exitosa */
+.modal-aviso-orange .modal-header {
+    background-color: #D9A775; /* Naranja cálido */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo para el texto en el modal naranja */
+.modal-aviso-orange .modal-body p {
+    color: #D9A775; /* Texto en naranja cálido */
+}
+
+.modal-aviso-orange .modal-footer {
+    background-color: #F5F3F2; /* Blanco cálido */
+    border-top: none;
+}
+
+/* Modal rojo cálido para errores */
+.modal-aviso-error .modal-header {
+    background-color: #B71C1C; /* Rojo cálido */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo para el texto en el modal rojo */
+.modal-aviso-error .modal-body p {
+    color: #B71C1C; /* Texto en rojo cálido */
+}
+
+.modal-aviso-error .modal-footer {
+    background-color: #FBE9E7; /* Rosa cálido */
+    border-top: none;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal de importación */
+#importModal .modal-header {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Texto blanco */
+    border-bottom: 1px solid #A1887F; /* Beige cálido */
+}
+
+/* Estilo del título del modal */
+#importModal .modal-title {
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo del botón de cerrar del modal */
+#importModal .close {
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo del cuerpo del modal */
+#importModal .modal-body {
+    background-color: #F5F3F2; /* Fondo blanco cálido */
+    color: #5D4037; /* Café oscuro para el texto */
+}
+
+/* Estilo del formulario dentro del modal */
+#importModal .modal-body form .form-label {
+    color: #8F5E3D; /* Café cálido */
+}
+
+/* Estilo del campo de entrada de archivos */
+#importModal .modal-body form .form-control {
+    border: 1px solid #D7CCC8; /* Beige claro */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo del botón de importación */
+#importModal .modal-body form .btn-primary {
+    background-color: #A1887F; /* Beige cálido */
+    border: none;
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s;
+}
+
+#importModal .modal-body form .btn-primary:hover {
+    background-color: #8F5E3D; /* Café cálido */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal "Ver Registro" */
+#verRegistroModal .modal-header {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Texto blanco */
+    border-bottom: 1px solid #A1887F; /* Beige cálido */
+}
+
+/* Estilo del título del modal */
+#verRegistroModal .modal-title {
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Estilo del botón de cerrar del modal */
+#verRegistroModal .btn-close {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilo del cuerpo del modal */
+#verRegistroModal .modal-body {
+    background-color: #F5F3F2; /* Blanco cálido */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo de los párrafos dentro del modal */
+#verRegistroModal .modal-body p {
+    color: #8F5E3D; /* Café cálido */
+}
+
+/* Estilo de los campos de datos dentro del modal */
+#verRegistroModal .modal-body span {
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo del botón de cerrar del modal */
+#verRegistroModal .modal-footer .btn-secondary {
+    background-color: #A1887F; /* Beige cálido */
+    border: none;
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s ease;
+}
+
+#verRegistroModal .modal-footer .btn-secondary:hover {
+    background-color: #8F5E3D; /* Café cálido */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal "Editar Registro" */
+.modal.fade[id^="editModal"] .modal-header {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Blanco */
+    border-bottom: 1px solid #A1887F; /* Beige cálido */
+}
+
+/* Estilo del título del modal */
+.modal.fade[id^="editModal"] .modal-title {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilo del botón de cerrar del modal */
+.modal.fade[id^="editModal"] .btn-close {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilo del cuerpo del modal */
+.modal.fade[id^="editModal"] .modal-body {
+    background-color: #F5F3F2; /* Blanco cálido */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo de las etiquetas del formulario dentro del modal */
+.modal.fade[id^="editModal"] .modal-body .form-label {
+    color: #8F5E3D; /* Café cálido */
+}
+
+/* Estilo del campo de entrada de texto */
+.modal.fade[id^="editModal"] .modal-body .form-control {
+    border: 1px solid #D7CCC8; /* Beige claro */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Estilo del botón de cerrar del modal */
+.modal.fade[id^="editModal"] .modal-footer .btn-secondary {
+    background-color: #A1887F; /* Beige cálido */
+    border: none;
+    color: #FFFFFF; /* Blanco */
+    transition: background-color 0.3s ease;
+}
+
+.modal.fade[id^="editModal"] .modal-footer .btn-secondary:hover {
+    background-color: #8F5E3D; /* Café cálido */
+}
+
+/* Estilo del botón de guardar cambios del modal */
+.modal.fade[id^="editModal"] .modal-footer .btn-primary {
+    background-color: #8F5E3D; /* Café cálido */
+    border: none;
+    color: #FFFFFF; /* Blanco */
+    transition: background-color 0.3s ease;
+}
+
+.modal.fade[id^="editModal"] .modal-footer .btn-primary:hover {
+    background-color: #5D4037; /* Café oscuro */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Encabezado del modal */
+[id^="eliminarRegistroModal"] .modal-header {
+    background-color: #8F5E3D; /* Café cálido */
+    color: #FFFFFF; /* Texto blanco */
+    border-bottom: 1px solid #A1887F; /* Beige cálido */
+}
+
+/* Título del modal */
+[id^="eliminarRegistroModal"] .modal-title {
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Botón de cerrar */
+[id^="eliminarRegistroModal"] .btn-close {
+    color: #FFFFFF; /* Texto blanco */
+}
+
+/* Cuerpo del modal */
+[id^="eliminarRegistroModal"] .modal-body {
+    background-color: #F5F3F2; /* Blanco cálido */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Párrafos dentro del modal */
+[id^="eliminarRegistroModal"] .modal-body p {
+    color: #8F5E3D; /* Café cálido */
+}
+
+/* Campos de datos dentro del modal */
+[id^="eliminarRegistroModal"] .modal-body span {
+    color: #5D4037; /* Café oscuro */
+    font-weight: bold;
+}
+
+/* Botón de cancelar */
+[id^="eliminarRegistroModal"] .modal-footer .btn-secondary {
+    background-color: #A1887F; /* Beige cálido */
+    border: none;
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover del botón de cancelar */
+[id^="eliminarRegistroModal"] .modal-footer .btn-secondary:hover {
+    background-color: #8F5E3D; /* Café cálido */
+}
+
+/* Botón de eliminar */
+[id^="eliminarRegistroModal"] .modal-footer .btn-danger {
+    background-color: #B71C1C; /* Rojo cálido */
+    border: none;
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover del botón de eliminar */
+[id^="eliminarRegistroModal"] .modal-footer .btn-danger:hover {
+    background-color: #7F1A1A; /* Rojo oscuro */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Header del modal */
+#agregarRegistroModal .modal-header {
+    background-color: #D4A373; /* Dorado cálido */
+    color: #FFFFFF; /* Blanco */
+    border-bottom: 1px solid #C29D75; /* Dorado más oscuro */
+}
+
+/* Título del modal */
+#agregarRegistroModal .modal-title {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Botón de cerrar */
+#agregarRegistroModal .btn-close {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Cuerpo del modal */
+#agregarRegistroModal .modal-body {
+    background-color: #FAEBD7; /* Fondo color crema */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Etiquetas del formulario */
+#agregarRegistroModal .modal-body .form-label {
+    color: #D4A373; /* Dorado cálido */
+}
+
+/* Campo de entrada de texto */
+#agregarRegistroModal .modal-body .form-control {
+    border: 1px solid #C29D75; /* Dorado oscuro */
+    color: #5D4037; /* Café oscuro */
+}
+
+/* Botón de cancelar */
+#agregarRegistroModal .modal-footer .btn-secondary {
+    background-color: #C29D75; /* Dorado oscuro */
+    color: #FFFFFF; /* Blanco */
+}
+
+#agregarRegistroModal .modal-footer .btn-secondary:hover {
+    background-color: #D4A373; /* Dorado cálido */
+}
+
+/* Botón de guardar */
+#agregarRegistroModal .modal-footer .btn-success {
+    background-color: #D4A373; /* Dorado cálido */
+    color: #FFFFFF; /* Blanco */
+}
+
+#agregarRegistroModal .modal-footer .btn-success:hover {
+    background-color: #B38652; /* Dorado más oscuro */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Modal Gráfico de Roles - Estilo Arbusto de Perlas */
+.roles-chart-modal .modal-content {
+    background-color: #F9F6F3; /* Fondo neutral claro */
+    color: #2E1F1C; /* Texto oscuro definido */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.roles-chart-modal .modal-header {
+    background-color: #B9977E; /* Fondo suave */
+    border-bottom: 1px solid #AB764E; /* Borde cálido */
+    color: #F9F6F3; /* Título claro */
+}
+
+.roles-chart-modal .modal-body {
+    background-color: #F9F6F3; /* Fondo neutral */
+    color: #2E1F1C; /* Texto oscuro */
+}
+
+.roles-chart-modal .modal-footer {
+    background-color: #E1D4C7; /* Fondo claro */
+    border-top: 1px solid #AB764E; /* Borde cálido */
+}
+
+.roles-chart-modal .btn-secondary {
+    background-color: #83594B; /* Botón natural */
+    border-color: #83594B;
+    color: #F9F6F3; /* Texto claro */
+}
+
+.roles-chart-modal .btn-secondary:hover {
+    background-color: #AB764E; /* Hover cálido */
+    border-color: #AB764E;
+}

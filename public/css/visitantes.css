@@ -1,0 +1,421 @@
+/*-------- General --------*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F5F3F2; /* Tono claro - Arbusto de Perlas 50 */
+    color: #3B302A; /* Café Suizo 900 */
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------- Sección 1: Presentación (Menú y Encabezado) --------*/
+/* Menú */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #8D5A4B; /* Kabul 700 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #FFFFFF; /* Blanco puro */
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.menu a i {
+    margin-right: 8px;
+}
+
+.menu a:hover {
+    background-color: #D7CCC8; /* Café Suizo 200 */
+    border-radius: 5px;
+    transform: translateY(-3px);
+}
+
+/* Botón de Login */
+.menu .login-btn {
+    background-color: #D7CCC8; /* Café Suizo 200 */
+    color: #8D5A4B; /* Kabul 700 */
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu .login-btn:hover {
+    background-color: #8D5A4B; /* Kabul 700 */
+    color: #FFFFFF; /* Blanco puro */
+    transform: translateY(-3px);
+}
+
+/* Encabezado */
+.header {
+    background-color: #8D5A4B; /* Kabul 700 */
+    color: #FFFFFF; /* Blanco puro */
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 60px; /* Ajustado para compensar la altura fija del menú */
+}
+
+/* Contenedor General */
+.section-presentacion {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-between; /* Mantiene el texto e imagen alineados horizontalmente */
+    align-items: center; /* Alinea verticalmente los elementos */
+    background-color: #FFFFFF; /* Fondo claro */
+}
+
+.presentacion-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Asegura que los elementos estén a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor completo */
+    gap: 20px; /* Espacio uniforme entre el texto y la imagen */
+}
+
+/* Texto a la Izquierda */
+.texto-presentacion {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    max-width: 45%; /* Limita el ancho máximo */
+    padding: 20px;
+    background-color: #F5F5F5; /* Fondo claro para resaltar */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    color: #3B302A; /* Color de texto */
+    box-sizing: border-box; /* Asegura que el padding no altere el tamaño */
+}
+
+.texto-presentacion h2 {
+    font-size: 2rem; /* Tamaño grande para el título */
+    margin-bottom: 15px;
+    color: #8F5E3D; /* Color destacado para el encabezado */
+}
+
+.texto-presentacion p {
+    font-size: 1.1rem; /* Tamaño del texto */
+    line-height: 1.8; /* Espaciado para una mejor legibilidad */
+    color: #5D4037; /* Color del texto */
+}
+
+/* Imagen a la Derecha */
+.imagen-presentacion {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    max-width: 45%; /* Limita el ancho máximo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-presentacion img {
+    width: 100%; /* Imagen completamente responsiva */
+    height: auto; /* Mantiene las proporciones originales */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------- Sección 2: Representación (Texto e Imagen) --------*/
+/* Contenedor de la Sección */
+.section-representacion {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F3F2; /* Fondo claro */
+    border-bottom: 1px solid #D7CCC8; /* Línea divisoria */
+}
+
+.representacion-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Carrusel de Imágenes a la Izquierda */
+.imagen-carrusel {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    max-width: 45%;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+    overflow: hidden; /* Evita que algo sobresalga */
+}
+
+/* Estilo para las Imágenes */
+.imagen-carrusel img {
+    width: 100%; /* Imagen completamente responsiva */
+    height: auto; /* Mantiene las proporciones originales */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+/* Texto a la Derecha */
+.representacion-texto {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    max-width: 45%;
+    color: #3B302A; /* Color de texto */
+}
+
+.representacion-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #8F5E3D; /* Color destacado */
+}
+
+.representacion-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5D4037; /* Color suave */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------- Sección 3: Generación de Reportes --------*/
+/* Contenedor de Reportes */
+.section-reportes {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF; /* Fondo blanco */
+    border-bottom: 1px solid #D7CCC8; /* Línea divisoria */
+}
+
+.section-reportes .contenedor-reportes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+/* Información de Reportes */
+.section-reportes .info-reportes {
+    flex: 1 1 40%; /* Ocupa el 40% del ancho */
+    max-width: 40%;
+    padding: 20px;
+    background-color: #F5F5F5; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.section-reportes .info-reportes h2 {
+    color: #8F5E3D; /* Kabul 700 */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.section-reportes .info-reportes p {
+    color: #5D4037; /* Café Suizo 800 */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Imagen de Reportes */
+.section-reportes .imagen-reportes {
+    flex: 1 1 55%; /* Ocupa el 55% del ancho */
+    max-width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-reportes .imagen-reportes img {
+    width: 100%; /* Imagen completamente responsiva */
+    height: auto; /* Mantiene las proporciones originales */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    display: block;
+}
+
+.contenedor-reportes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+/* Información sobre Reportes */
+.info-reportes {
+    flex: 1 1 40%; /* Ocupa el 40% del ancho */
+    max-width: 40%;
+    height: auto; /* Elimina la altura fija */
+    padding: 20px;
+    background-color: #F5F5F5; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Mantiene el contenido en columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    margin: auto 0; /* Ajusta automáticamente el margen superior e inferior */
+}
+
+.info-reportes h2 {
+    color: #8F5E3D; /* Kabul 700 */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.info-reportes p {
+    color: #5D4037; /* Café Suizo 800 */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Carrusel de Imágenes sobre Reportes */
+.imagen-carrusel-reportes {
+    flex: 1 1 55%; /* Ocupa el 55% del ancho */
+    max-width: 55%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow: hidden; /* Asegura que las imágenes no se desborden */
+}
+
+.imagen-carrusel-reportes img {
+    width: 100%; /* Imagen completamente responsiva */
+    height: auto; /* Mantiene las proporciones originales */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------- Sección 4: Visualización de Gráficos --------*/
+
+/* Contenedor de Gráficos */
+.section-graficos {
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #F5F3F2; /* Fondo claro */
+}
+
+.contenedor-graficos {
+    display: flex; /* Activa flexbox */
+    flex-wrap: wrap; /* Permite líneas múltiples si es necesario */
+    justify-content: space-between; /* Separa elementos de forma uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 20px; /* Espaciado entre elementos */
+    width: 100%; /* Se ajusta al ancho completo */
+    padding: 20px;
+    background-color: #FFFFFF; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Información de Gráficos (Texto a la Derecha) */
+.info-graficos {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    text-align: left; /* Alinea el texto a la izquierda */
+    max-width: 45%; /* Limita el ancho máximo */
+    padding: 20px; /* Espaciado interno */
+    background-color: #F5F5F5; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.info-graficos h2 {
+    color: #8F5E3D; /* Color destacado */
+    font-size: 1.8rem; /* Tamaño del título */
+    margin-bottom: 15px;
+}
+
+.info-graficos p {
+    color: #5D4037; /* Color suave para el texto */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Carrusel de Imágenes (A la Izquierda) */
+.graficos-carrusel {
+    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    max-width: 45%; /* Limita el ancho máximo */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Evita contenido que sobresalga */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #FFFFFF;
+}
+
+/* Estilo para Imágenes del Carrusel */
+.graficos-carrusel .carousel-item img {
+    width: 100%; /* Imagen completamente responsiva */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Ajuste para Imagen específica 'Gráficos-Usuarios.png' */
+.carousel-inner .carousel-item img[alt="Gráfico Usuarios"] {
+    display: block; /* Imagen en bloque */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+    max-height: 400px; /* Altura máxima para ajustar el tamaño */
+    object-fit: contain; /* Mantiene la proporción sin recortes */
+}
+
+/* Ajuste para Imagen específica 'Gráfico IoT' */
+.carousel-inner .carousel-item img[alt="Gráfico IoT"] {
+    display: block; /* Imagen en bloque */
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 400px; /* Altura máxima */
+    object-fit: contain; /* Evita distorsiones */
+}
+
+/* Configuración General para otras Imágenes del Carrusel */
+.carousel-inner .carousel-item img {
+    display: block;
+    margin: auto; /* Centra todas las imágenes */
+    max-width: 100%; /* No excede el ancho máximo */
+    height: auto; /* Mantiene proporción */
+    object-fit: contain; /* Evita distorsión */
+}

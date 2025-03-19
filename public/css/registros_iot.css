@@ -1,0 +1,804 @@
+/* Paginacion */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    border-radius: 0.25rem;
+}
+
+.pagination li {
+    margin: 0 0.25rem;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li a:hover,
+.pagination li span:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.active a,
+.pagination li.active span {
+    z-index: 1;
+    color: #fff;
+    background-color: #28a745;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.disabled span {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #e9ecef;
+    border: none;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Números de página */
+.pagination li a.page-link,
+.pagination li span.page-link {
+    background-color: #d0e7f9; /* Azul muy claro */
+    border: 1px solid #9bbbd9; /* Azul grisáceo */
+    color: #5a6fa5; /* Azul desaturado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.pagination li a.page-link:hover,
+.pagination li span.page-link:hover {
+    background-color: #6a7bb6; /* Azul navbar */
+    border-color: #5461a1; /* Azul más oscuro */
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li.active a.page-link,
+.pagination li.active span.page-link {
+    background-color: #5a6fa5; /* Azul medio */
+    border-color: #3e4c87; /* Azul profundo */
+    color: white;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Botón de Agregar Registro */
+.btn-success {
+    position: relative;
+    overflow: hidden;
+    background-color: #64B5F6; /* Azul claro */
+    border-color: #64B5F6;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover */
+.btn-success:hover {
+    background-color: #42A5F5; /* Azul más vibrante */
+    transform: translateY(-3px);
+}
+
+/* Efecto de foco/presión */
+.btn-success:active {
+    background-color: #1E88E5; /* Azul intenso */
+    border-color: #1E88E5;
+    transform: translateY(0);
+}
+
+/* Efecto de sombra */
+.btn-success::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn-success:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+/* Estilo para el ícono y el texto dentro del botón */
+.btn-success i,
+.btn-success span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Personalización de .btn-success con tonos azules */
+.btn-success {
+    position: relative;
+    overflow: hidden;
+    --bs-btn-color: #fff; /* Texto blanco */
+    --bs-btn-bg: #64B5F6; /* Azul claro */
+    --bs-btn-border-color: #64B5F6; /* Borde azul claro */
+    --bs-btn-hover-color: #fff; /* Texto blanco en hover */
+    --bs-btn-hover-bg: #42A5F5; /* Azul más vibrante en hover */
+    --bs-btn-hover-border-color: #42A5F5; /* Borde azul vibrante en hover */
+    --bs-btn-focus-shadow-rgb: 66, 165, 245; /* Sombra azul */
+    --bs-btn-active-color: #fff; /* Texto blanco al presionar */
+    --bs-btn-active-bg: #1E88E5; /* Azul oscuro al presionar */
+    --bs-btn-active-border-color: #1E88E5; /* Borde azul oscuro al presionar */
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(30, 136, 229, 0.125); /* Sombra interna al presionar */
+    --bs-btn-disabled-color: #fff; /* Texto blanco para botones deshabilitados */
+    --bs-btn-disabled-bg: #90CAF9; /* Azul pastel para deshabilitados */
+    --bs-btn-disabled-border-color: #90CAF9; /* Borde azul pastel */
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+    color: var(--bs-btn-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efectos de hover para .btn-success */
+.btn-success:hover {
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+    transform: translateY(-3px);
+}
+
+/* Efectos de foco/presión para .btn-success */
+.btn-success:active {
+    background-color: var(--bs-btn-active-bg);
+    border-color: var(--bs-btn-active-border-color);
+    transform: translateY(0);
+}
+
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Estilo para los botones de acciones */
+.btn-action {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto de hover */
+.btn-action:hover {
+    transform: translateY(-3px);
+}
+
+/* Efecto de foco (cuando se presiona el botón) */
+.btn-action:active {
+    transform: translateY(0);
+}
+
+/* Efecto de sombra */
+.btn-action::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn-action:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+/* Estilo para el ícono y el texto dentro del botón */
+.btn-action i,
+.btn-action span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Colores específicos para cada botón de acción */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Fondo de la página */
+body {
+    background-color: #E0F7FA;
+    font-family: Arial, sans-serif;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Estilo para la tabla */
+.table {
+    background-color: #ffffff; /* Blanco puro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Encabezado de la tabla */
+.table thead th {
+    background-color: #3949ab; /* Azul profundo */
+    color: #ffffff; /* Texto blanco */
+}
+
+.table tbody tr {
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el estado normal */
+}
+
+.table tbody tr:hover {
+    background-color: #e3f2fd; /* Azul pastel claro al pasar el cursor */
+    transform: scale(1.01); /* Efecto de "levantar" ligeramente la fila */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición fluida para el hover */
+}
+
+/* Celdas de la tabla */
+.table td, .table th {
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Botones de acciones */
+.btn-action {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-action:hover {
+    transform: translateY(-3px);
+}
+
+.btn-action:active {
+    transform: translateY(0);
+}
+
+.btn-action::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn-action:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.btn-action i, .btn-action span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Botón de Agregar Registro */
+.btn-primary {
+    background-color: #1E88E5; /* Azul profesional */
+    border-color: #1E88E5;
+}
+
+.btn-primary:hover {
+    background-color: #1565C0; /* Azul más oscuro */
+    border-color: #1565C0;
+}
+
+/* Botón de Ver Registro */
+.btn-warning {
+    background-color: #64B5F6; /* Azul cielo claro */
+    border-color: #64B5F6;
+}
+
+.btn-warning:hover {
+    background-color: #42A5F5; /* Azul cielo más vibrante */
+    border-color: #42A5F5;
+}
+
+/* Botón de Editar */
+.btn-danger {
+    background-color: #90CAF9; /* Azul pastel */
+    border-color: #90CAF9;
+}
+
+.btn-danger:hover {
+    background-color: #64B5F6; /* Azul pastel más oscuro */
+    border-color: #64B5F6;
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+    .btn-action {
+        margin: 2px;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+
+/* Estilos para el Modal de Aviso */
+
+/* Estilo general para el texto del modal de aviso */
+.modal-aviso .modal-body p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Modal verde para creación exitosa */
+.modal-aviso-success .modal-header {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Estilo para el texto en el modal verde */
+.modal-aviso-success .modal-body p {
+    color: #28a745;
+}
+
+.modal-aviso-success .modal-footer {
+    background-color: #f9f9f9;
+    border-top: none;
+}
+
+/* Modal amarillo para edición exitosa */
+.modal-aviso-warning .modal-header {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+/* Estilo para el texto en el modal amarillo */
+.modal-aviso-warning .modal-body p {
+    color: #ffc107;
+}
+
+.modal-aviso-warning .modal-footer {
+    background-color: #f9f9f9;
+    border-top: none;
+}
+
+/* Modal naranja para eliminación exitosa */
+.modal-aviso-orange .modal-header {
+    background-color: #fd7e14;
+    color: #fff;
+}
+
+/* Estilo para el texto en el modal naranja */
+.modal-aviso-orange .modal-body p {
+    color: #fd7e14;
+}
+
+.modal-aviso-orange .modal-footer {
+    background-color: #f9f9f9;
+    border-top: none;
+}
+
+/* Modal rojo para errores */
+.modal-aviso-error .modal-header {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Estilo para el texto en el modal rojo */
+.modal-aviso-error .modal-body p {
+    color: #dc3545;
+}
+
+.modal-aviso-error .modal-footer {
+    background-color: #f9f9f9;
+    border-top: none;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal de importación */
+#importModal .modal-header {
+    background-color: #90CAF9; /* Azul pastel */
+    color: #0D47A1; /* Azul profundo */
+    border-bottom: 1px solid #64B5F6; /* Azul vibrante */
+}
+
+/* Estilo del título del modal */
+#importModal .modal-title {
+    color: #0D47A1; /* Azul profundo */
+}
+
+/* Estilo del botón de cerrar del modal */
+#importModal .close {
+    color: #0D47A1; /* Azul profundo */
+}
+
+/* Estilo del cuerpo del modal */
+#importModal .modal-body {
+    background-color: #E3F2FD; /* Fondo azul pastel claro */
+    color: #1565C0; /* Azul oscuro para el texto */
+}
+
+/* Estilo del formulario dentro del modal */
+#importModal .modal-body form .form-label {
+    color: #1565C0; /* Azul oscuro */
+}
+
+/* Estilo del campo de entrada de archivos */
+#importModal .modal-body form .form-control {
+    border: 1px solid #BBDEFB; /* Azul pastel claro */
+    color: #1565C0; /* Azul oscuro */
+}
+
+/* Estilo del botón de importación */
+#importModal .modal-body form .btn-primary {
+    background-color: #64B5F6; /* Azul claro */
+    border: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#importModal .modal-body form .btn-primary:hover {
+    background-color: #42A5F5; /* Azul vibrante */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal "Ver Registro" */
+#verRegistroModal .modal-header {
+    background-color: #BBDEFB; /* Azul pastel */
+    color: #0D47A1; /* Azul intenso */
+    border-bottom: 1px solid #90CAF9; /* Azul más claro */
+}
+
+/* Estilo del título del modal */
+#verRegistroModal .modal-title {
+    color: #0D47A1; /* Azul intenso */
+}
+
+/* Estilo del botón de cerrar del modal */
+#verRegistroModal .btn-close {
+    color: #0D47A1; /* Azul intenso */
+}
+
+/* Estilo del cuerpo del modal */
+#verRegistroModal .modal-body {
+    background-color: #E3F2FD; /* Azul pastel muy claro */
+    color: #0D47A1; /* Azul intenso */
+}
+
+/* Estilo de los párrafos dentro del modal */
+#verRegistroModal .modal-body p {
+    color: #1565C0; /* Azul oscuro */
+}
+
+/* Estilo de los campos de datos dentro del modal */
+#verRegistroModal .modal-body span {
+    color: #1565C0; /* Azul oscuro */
+}
+
+/* Estilo del botón de cerrar del modal */
+#verRegistroModal .modal-footer .btn-secondary {
+    background-color: #42A5F5; /* Azul vibrante */
+    border: none;
+    color: white; /* Texto blanco */
+    transition: background-color 0.3s;
+}
+
+#verRegistroModal .modal-footer .btn-secondary:hover {
+    background-color: #1E88E5; /* Azul más profundo */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal "Editar Registro" */
+.modal.fade[id^="editModal"] .modal-header {
+    background-color: #64B5F6; /* Azul suave */
+    color: #FFFFFF; /* Blanco */
+    border-bottom: 1px solid #BBDEFB; /* Azul pastel claro */
+}
+
+/* Estilo del título del modal */
+.modal.fade[id^="editModal"] .modal-title {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilo del botón de cerrar del modal */
+.modal.fade[id^="editModal"] .btn-close {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Estilo del cuerpo del modal */
+.modal.fade[id^="editModal"] .modal-body {
+    background-color: #E3F2FD; /* Azul claro */
+    color: #1565C0; /* Azul intenso */
+}
+
+/* Estilo de las etiquetas del formulario dentro del modal */
+.modal.fade[id^="editModal"] .modal-body .form-label {
+    color: #1565C0; /* Azul intenso */
+}
+
+/* Estilo del campo de entrada de texto */
+.modal.fade[id^="editModal"] .modal-body .form-control {
+    border: 1px solid #90CAF9; /* Azul pastel */
+    color: #0D47A1; /* Azul oscuro */
+}
+
+/* Estilo del botón de cerrar del modal */
+.modal.fade[id^="editModal"] .modal-footer .btn-secondary {
+    background-color: #42A5F5; /* Azul vibrante */
+    border: none;
+    color: white; /* Blanco */
+    transition: background-color 0.3s;
+}
+
+.modal.fade[id^="editModal"] .modal-footer .btn-secondary:hover {
+    background-color: #1E88E5; /* Azul profundo */
+}
+
+/* Estilo del botón de guardar cambios del modal */
+.modal.fade[id^="editModal"] .modal-footer .btn-primary {
+    background-color: #64B5F6; /* Azul claro */
+    border: none;
+    color: white; /* Blanco */
+    transition: background-color 0.3s;
+}
+
+.modal.fade[id^="editModal"] .modal-footer .btn-primary:hover {
+    background-color: #42A5F5; /* Azul vibrante */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Header del modal "Eliminar Registro" */
+#eliminarRegistroModal .modal-header {
+    background-color: #0D47A1; /* Azul océano profundo */
+    color: #FFFFFF; /* Blanco */
+    border-bottom: 1px solid #002171; /* Azul aún más oscuro */
+}
+
+/* Título del modal */
+#eliminarRegistroModal .modal-title {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Botón de cerrar */
+#eliminarRegistroModal .btn-close {
+    color: #FFFFFF; /* Blanco */
+}
+
+/* Cuerpo del modal */
+#eliminarRegistroModal .modal-body {
+    background-color: #BBDEFB; /* Azul claro */
+    color: #0D47A1; /* Azul intenso */
+}
+
+/* Párrafos dentro del modal */
+#eliminarRegistroModal .modal-body p {
+    color: #0D47A1; /* Azul intenso */
+}
+
+/* Campos de datos */
+#eliminarRegistroModal .modal-body span {
+    color: #1565C0; /* Azul marino */
+}
+
+/* Botón de cancelar */
+#eliminarRegistroModal .modal-footer .btn-secondary {
+    background-color: #2979FF; /* Azul eléctrico */
+    border: none;
+    color: white; /* Blanco */
+    transition: background-color 0.3s;
+}
+
+#eliminarRegistroModal .modal-footer .btn-secondary:hover {
+    background-color: #1C54B2; /* Azul más intenso */
+}
+
+/* Botón de eliminar */
+#eliminarRegistroModal .modal-footer .btn-danger {
+    background-color: #002171; /* Azul profundo */
+    border: none;
+    color: white; /* Blanco */
+    transition: background-color 0.3s;
+}
+
+#eliminarRegistroModal .modal-footer .btn-danger:hover {
+    background-color: #000A29; /* Azul casi negro */
+}
+
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Estilo del header del modal "Agregar Registro" */
+#agregarRegistroModal .modal-header {
+    background-color: #8DA4CD; /* Azul Salvaje 400 */
+    color: #3E456A; /* Azul Salvaje 900 */
+    border-bottom: 1px solid #495284; /* Azul Salvaje 800 */
+}
+
+/* Estilo del título del modal */
+#agregarRegistroModal .modal-title {
+    color: #3E456A; /* Azul Salvaje 900 */
+}
+
+/* Estilo del botón de cerrar del modal */
+#agregarRegistroModal .btn-close {
+    color: #3E456A; /* Azul Salvaje 900 */
+}
+
+/* Estilo del cuerpo del modal */
+#agregarRegistroModal .modal-body {
+    background-color: #F4F6FA; /* Azul Salvaje 50 */
+    color: #5461A1; /* Azul Salvaje 700 */
+}
+
+/* Estilo de las etiquetas del formulario dentro del modal */
+#agregarRegistroModal .modal-body .form-label {
+    color: #5461A1; /* Azul Salvaje 700 */
+}
+
+/* Estilo del campo de entrada de texto */
+#agregarRegistroModal .modal-body .form-control {
+    border: 1px solid #495284; /* Azul Salvaje 800 */
+    color: #3E456A; /* Azul Salvaje 900 */
+}
+
+/* Estilo del botón de cerrar del modal */
+#agregarRegistroModal .modal-footer .btn-secondary {
+    background-color: #B2C3DE; /* Azul Salvaje 300 */
+    border: none;
+    color: white; /* Color del texto blanco */
+    transition: background-color 0.3s;
+}
+
+#agregarRegistroModal .modal-footer .btn-secondary:hover {
+    background-color: #5461A1; /* Azul Salvaje 700 */
+}
+
+/* Estilo del botón de guardar cambios del modal */
+#agregarRegistroModal .modal-footer .btn-success {
+    background-color: #7288FF; /* Azul Salvaje 500 */
+    border: none;
+    color: white; /* Color del texto blanco */
+    transition: background-color 0.3s;
+}
+
+#agregarRegistroModal .modal-footer .btn-success:hover {
+    background-color: #5461A1; /* Azul Salvaje 700 */
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Modal Gráfico - Estilo Burbujas */
+.graphics-modal .modal-content {
+    background-color: #E3F2FD; /* Azul claro de fondo (nivel 50) */
+    color: #0D47A1; /* Azul oscuro para el texto (nivel 900) */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(13, 71, 161, 0.2); /* Sombra ligera */
+}
+
+.graphics-modal .modal-header {
+    background-color: #BBDEFB; /* Azul más fuerte (nivel 200) */
+    border-bottom: 1px solid #2196F3; /* Azul de transición */
+    color: #0D47A1; /* Azul oscuro */
+}
+
+.graphics-modal .modal-body {
+    background-color: #E3F2FD; /* Fondo en azul claro */
+    color: #0D47A1; /* Texto azul oscuro */
+}
+
+.graphics-modal .btn-close {
+    background-color: #64B5F6; /* Azul intermedio (nivel 300) */
+    color: #FFFFFF;
+    border: none;
+}
+
+.graphics-modal .btn-close:hover {
+    background-color: #1976D2; /* Azul más fuerte al pasar el cursor (nivel 700) */
+}

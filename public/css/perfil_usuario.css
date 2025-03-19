@@ -1,0 +1,389 @@
+/*--------------------------*/
+/* General Reset */
+/*--------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3FAF8; /* Niagara 50 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*--------------------------*/
+/* Layout: Contenedor Principal */
+/*--------------------------*/
+.container {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px); /* Altura menos el navbar */
+    gap: 20px; /* Separación entre secciones */
+    padding: 20px;
+}
+
+/*--------------------------*/
+/* Sidebar (Sección Izquierda) */
+/*--------------------------*/
+.sidebar {
+    width: 25%;
+    background-color: #D7F0E9; /* Niagara 100 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Saludo y Rol en el Sidebar */
+.saludo-rol {
+    background-color: #AFEDD3; /* Niagara 200 */
+    color: #0E2523; /* Niagara 950 */
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saludo-rol strong {
+    color: #409C8C; /* Niagara 500 */
+}
+
+/* Botones del Sidebar */
+.botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo General para Botones */
+.botones button,
+.botones a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Asegura que todos los botones tengan el mismo ancho */
+    padding: 15px; /* Aumenta el padding para igualar el tamaño al botón de gráficos */
+    background-color: #409C8C; /* Niagara 500 */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none; /* Para enlaces */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Hover en Botones */
+.botones button:hover,
+.botones a:hover {
+    background-color: #80C8B8; /* Niagara 300 */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Iconos de los Botones */
+.botones i {
+    margin-right: 10px; /* Espaciado entre el icono y texto */
+    font-size: 1.2rem; /* Ajustar el tamaño del icono */
+}
+
+/*--------------------------*/
+/* Modal de Gráficos */
+/*--------------------------*/
+
+/* Fondo del Modal */
+.modal-content {
+    background-color: #D7F0E9; /* Niagara 100 */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    color: #0E2523; /* Texto Niagara 950 */
+}
+
+/* Encabezado del Modal */
+.modal-header {
+    background-color: #409C8C; /* Niagara 500 */
+    color: #FFFFFF; /* Texto blanco */
+    border-bottom: 2px solid #2D7468; /* Línea inferior */
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+/* Botón Cerrar del Modal */
+.modal-header .btn-close {
+    background-color: #80C8B8; /* Niagara 300 */
+    border-radius: 50%;
+    opacity: 1; /* Asegura que siempre sea visible */
+    transition: background-color 0.3s ease;
+}
+
+.modal-header .btn-close:hover {
+    background-color: #2D7468; /* Niagara 600 */
+}
+
+/* Botón Cerrar del Footer */
+.modal-footer .btn-cerrar {
+    background-color: #409C8C; /* Niagara 500 */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-footer .btn-cerrar:hover {
+    background-color: #80C8B8; /* Hover Niagara 300 */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/*--------------------------*/
+/* Contenido Principal (Sección Derecha) */
+/*--------------------------*/
+.contenido {
+    flex: 1;
+    background-color: #D7F0E9; /* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Apila verticalmente */
+    gap: 20px; /* Espaciado entre elementos */
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*--------------------------*/
+/* Contenedor de la Tabla */
+/*--------------------------*/
+.tabla-contenedor {
+    width: 100%;
+    background-color: #F3FAF8; /* Niagara 50 */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow-x: auto; /* Scroll horizontal en pantallas pequeñas */
+}
+
+/*--------------------------*/
+/* Contenedor de la Tabla */
+/*--------------------------*/
+.tabla-niagara {
+    width: 100%;
+    border-collapse: collapse; /* Elimina espacios entre celdas */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura bordes visibles */
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: #D7F0E9; /* Fondo claro Niagara 100 */
+}
+
+/*--------------------------*/
+/* Encabezados de la Tabla */
+/*--------------------------*/
+.tabla-niagara th {
+    background-color: #409C8C; /* Niagara 500 */
+    color: #FFFFFF; /* Texto blanco */
+    font-weight: bold;
+    padding: 12px 15px;
+    border-bottom: 2px solid #AFE0D3; /* Línea divisoria Niagara 200 */
+}
+
+/*--------------------------*/
+/* Celdas de la Tabla */
+/*--------------------------*/
+.tabla-niagara td {
+    background-color: #D7F0E9; /* Fondo celdas claro Niagara 100 */
+    color: #0E2523; /* Texto Niagara 950 */
+    padding: 10px;
+}
+
+/*--------------------------*/
+/* Filas Alternadas */
+/*--------------------------*/
+.tabla-niagara tbody tr:nth-child(odd) {
+    background-color: #AFE0D3; /* Niagara 200 */
+}
+
+.tabla-niagara tbody tr:nth-child(even) {
+    background-color: #D7F0E9; /* Niagara 100 */
+}
+
+/*--------------------------*/
+/* Hover en las Filas */
+/*--------------------------*/
+.tabla-niagara tbody tr:hover {
+    background-color: #80C8B8; /* Niagara 300 */
+    color: #FFFFFF; /* Texto blanco */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/*--------------------------*/
+/* Título de la Tabla */
+/*--------------------------*/
+.tabla-titulo {
+    font-size: 1.5rem;
+    color: #0E2523; /* Niagara 950 */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/*--------------------------*/
+/* Esconder ID */
+/*--------------------------*/
+.hidden-column {
+    display: none;
+}
+
+/*--------------------------*/
+/* Botón "Agregar Registro" */
+/*--------------------------*/
+.btn-success {
+    background-color: #4CAF50; /* Verde */
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success i {
+    margin-right: 5px;
+}
+
+.btn-success:hover {
+    background-color: #45A049; /* Verde más oscuro */
+    transform: translateY(-2px);
+}
+
+/* Botón "Eliminar Registro" */
+.btn-danger {
+    background-color: #FF6B6B; /* Rojo */
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #E04E4E; /* Rojo más oscuro */
+    transform: translateY(-2px);
+}
+
+/*--------------------------*/
+/* Modales */
+/*--------------------------*/
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #F3FAF8; /* Niagara 50 */
+}
+
+.modal-header {
+    background-color: #409C8C; /* Niagara 500 */
+    color: #FFFFFF;
+    border-bottom: 1px solid #AFEDD3; /* Niagara 200 */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Botón "Cerrar" */
+.modal-footer .btn-secondary {
+    background-color: #AFEDD3; /* Niagara 200 */
+    color: #0E2523; /* Niagara 950 */
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #80C8B8; /* Niagara 300 */
+}
+
+/* Animación del Modal */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal.fade .modal-dialog {
+    animation: slideDown 0.3s ease-out;
+}
+
+/*--------------------------*/
+/* Estilo del Menú de Reportes */
+/*--------------------------*/
+
+/* Estilo General para la Sección de Botones */
+.sidebar .botones {
+    display: flex;
+    flex-direction: column; /* Alinear los botones verticalmente */
+    gap: 15px; /* Espaciado entre los botones */
+    margin-top: 20px;
+}
+
+/* Botón General (Estilo Base) */
+.sidebar .botones button,
+.sidebar .botones a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #409C8C; /* Fondo Niagara 500 */
+    color: #FFFFFF; /* Texto blanco */
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-decoration: none; /* Para enlaces */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    cursor: pointer;
+}
+
+/* Hover en Botones */
+.sidebar .botones button:hover,
+.sidebar .botones a:hover {
+    background-color: #80C8B8; /* Hover Niagara 300 */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Botón: Exportar Excel */
+.btn-reporte-excel {
+    background-color: #285D56; /* Niagara 700 */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+.btn-reporte-excel:hover {
+    background-color: #234C46; /* Hover Niagara 800 */
+}
+
+/* Botón: Previsualizar PDF */
+.btn-reporte-pdf {
+    background-color: #AFE0D3; /* Niagara 200 */
+    color: #0E2523; /* Texto Niagara 950 */
+}
+
+.btn-reporte-pdf:hover {
+    background-color: #D7F0E9; /* Hover Niagara 100 */
+}
