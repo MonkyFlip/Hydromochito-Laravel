@@ -3,13 +3,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
+/*--------------------------*/
 /* Paginación */
 .pagination-container {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    flex-wrap: wrap; /* Ajuste dinámico para pantallas pequeñas */
 }
 
 .pagination {
@@ -58,9 +58,7 @@ body {
     border: none;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-
+/*--------------------------*/
 /* Números de página */
 .pagination li a.page-link,
 .pagination li span.page-link {
@@ -94,8 +92,7 @@ body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
-/*---------------------------------------------------------------------------------------*/
-
+/*--------------------------*/
 /* Botón de Agregar Registro */
 .btn-success {
     position: relative;
@@ -106,18 +103,50 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto de hover */
+/* Hover */
 .btn-success:hover {
     background-color: #A1887F; /* Beige cálido */
     border-color: #A1887F;
     transform: translateY(-3px);
 }
 
-/* Efecto de foco/presión */
+/* Active */
 .btn-success:active {
     background-color: #6D4C41; /* Café oscuro */
     border-color: #6D4C41;
     transform: translateY(0);
+}
+
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        padding: 0.25rem 0.5rem; /* Reducir tamaño */
+    }
+
+    .btn-success {
+        font-size: 0.9rem; /* Ajustar tamaño en pantallas pequeñas */
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination li a.page-link,
+    .pagination li span.page-link {
+        width: 30px;
+        height: 30px; /* Más pequeño en pantallas extra pequeñas */
+        font-size: 0.8rem;
+    }
+
+    .btn-success {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
 }
 
 /* Efecto de sombra */
@@ -142,112 +171,129 @@ body {
     left: 50%;
 }
 
-/* Estilo para el ícono y el texto dentro del botón */
+/* Icono y texto dentro del botón */
 .btn-success i,
 .btn-success span {
     position: relative;
     z-index: 1;
 }
 
-/* Personalización de .btn-success con tonos café y beige */
+/* Personalización de .btn-success */
 .btn-success {
     --bs-btn-color: #fff; /* Texto blanco */
     --bs-btn-bg: #8F5E3D; /* Café cálido */
-    --bs-btn-border-color: #8F5E3D; /* Borde café cálido */
+    --bs-btn-border-color: #8F5E3D;
     --bs-btn-hover-color: #fff; /* Texto blanco en hover */
     --bs-btn-hover-bg: #A1887F; /* Beige cálido en hover */
-    --bs-btn-hover-border-color: #A1887F; /* Borde beige cálido en hover */
-    --bs-btn-focus-shadow-rgb: 161, 136, 127; /* Sombra beige */
+    --bs-btn-hover-border-color: #A1887F;
+    --bs-btn-focus-shadow-rgb: 161, 136, 127;
     --bs-btn-active-color: #fff; /* Texto blanco al presionar */
     --bs-btn-active-bg: #6D4C41; /* Café oscuro al presionar */
-    --bs-btn-active-border-color: #6D4C41; /* Borde café oscuro al presionar */
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(109, 76, 65, 0.125); /* Sombra interna al presionar */
-    --bs-btn-disabled-color: #fff; /* Texto blanco para botones deshabilitados */
-    --bs-btn-disabled-bg: #D7CCC8; /* Beige claro para deshabilitados */
-    --bs-btn-disabled-border-color: #D7CCC8; /* Borde beige claro */
+    --bs-btn-active-border-color: #6D4C41;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(109, 76, 65, 0.125);
+    --bs-btn-disabled-color: #fff; /* Texto blanco deshabilitado */
+    --bs-btn-disabled-bg: #D7CCC8; /* Beige claro deshabilitado */
+    --bs-btn-disabled-border-color: #D7CCC8;
     background-color: var(--bs-btn-bg);
     border-color: var(--bs-btn-border-color);
     color: var(--bs-btn-color);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Efectos de hover para .btn-success */
+/* Hover */
 .btn-success:hover {
     background-color: var(--bs-btn-hover-bg);
     border-color: var(--bs-btn-hover-border-color);
     transform: translateY(-3px);
 }
 
-/* Efectos de foco/presión para .btn-success */
+/* Active */
 .btn-success:active {
     background-color: var(--bs-btn-active-bg);
     border-color: var(--bs-btn-active-border-color);
     transform: translateY(0);
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo para la tabla */
+/* Tabla */
 .table {
     background-color: #F5F3F2; /* Blanco cálido */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 1px solid #D7CCC8; /* Borde beige claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    border: 1px solid #D7CCC8; /* Beige claro */
 }
 
-/* Encabezado de la tabla */
 .table thead th {
     background-color: #8F5E3D; /* Café cálido */
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Fila de la tabla */
 .table tbody tr {
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el estado normal */
-}
-
-/* Fila al pasar el cursor */
-.table tbody tr:hover {
-    background-color: #EDE9E6; /* Beige pastel al pasar el cursor */
-    transform: scale(1.01); /* Mantener el escalado */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Celdas de la tabla */
-.table td, .table th {
-    border: none; /* Sin bordes */
-    padding: 12px 15px;
-    text-align: left; /* Alinear el texto a la izquierda */
-    vertical-align: middle; /* Centrar el contenido verticalmente */
-    white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
+.table tbody tr:hover {
+    background-color: #EDE9E6; /* Beige pastel */
+    transform: scale(1.01);
 }
 
-/* Contenedor de la tabla */
+.table td,
+.table th {
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
 .table-container {
-    overflow-x: hidden; /* Ocultar el desplazamiento horizontal */
+    overflow-x: hidden; /* Ocultar desplazamiento horizontal */
     position: relative;
 }
 
-/*---------------------------------------------------------------------------------------*/
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto; /* Habilitar desplazamiento horizontal */
+    }
 
-/* Estilo para los botones de acciones */
+    .table th,
+    .table td {
+        white-space: nowrap; /* Evitar saltos de línea */
+    }
+
+    .btn-success {
+        padding: 10px 15px; /* Ajustar tamaño del botón */
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-success {
+        font-size: 0.8rem; /* Texto más pequeño */
+        padding: 6px 10px; /* Reducción en pantallas pequeñas */
+    }
+
+    .table th,
+    .table td {
+        padding: 8px; /* Reducir padding */
+    }
+}
+
+/* Botones de Acción */
 .btn-action {
     position: relative;
     overflow: hidden;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto de hover */
 .btn-action:hover {
     transform: translateY(-3px); /* Elevar al pasar el cursor */
 }
 
-/* Efecto de foco (cuando se presiona el botón) */
 .btn-action:active {
     transform: translateY(0); /* Regresar a su posición original */
 }
 
-/* Efecto de sombra */
 .btn-action::before {
     content: "";
     position: absolute;
@@ -269,7 +315,7 @@ body {
     left: 50%;
 }
 
-/* Estilo para el ícono y el texto dentro del botón */
+/* Icono y texto dentro del botón */
 .btn-action i,
 .btn-action span {
     position: relative;
@@ -314,33 +360,46 @@ body {
     border-color: #B71C1C;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos responsivos */
+/*--------------------------*/
+/* Estilos Responsivos */
 @media (max-width: 768px) {
     .table-responsive {
-        overflow-x: auto;
+        overflow-x: auto; /* Scroll horizontal */
     }
 
-    .table th, .table td {
-        white-space: nowrap;
+    .table th,
+    .table td {
+        white-space: nowrap; /* Mantener en una línea */
     }
 
     .btn-action {
-        margin: 2px;
+        margin: 2px; /* Más espacio entre botones */
     }
 
     .pagination-container {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Ajuste dinámico para pantallas pequeñas */
     }
 
     .pagination li a,
     .pagination li span {
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem 0.5rem; /* Reducir tamaño en pantallas pequeñas */
     }
 }
 
-/*---------------------------------------------------------------------------------------*/
+@media (max-width: 576px) {
+    .btn-action {
+        font-size: 0.8rem; /* Texto más pequeño */
+        padding: 5px; /* Ajustar espacio */
+    }
+
+    .pagination li a,
+    .pagination li span {
+        width: 30px;
+        height: 30px; /* Tamaño más pequeño */
+        font-size: 0.8rem;
+    }
+}
+
 /* Estilos para el Modal de Aviso */
 
 /* Estilo general para el texto del modal de aviso */
@@ -356,7 +415,6 @@ body {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Estilo para el texto en el modal verde */
 .modal-aviso-success .modal-body p {
     color: #8F5E3D; /* Texto en café cálido */
 }
@@ -372,7 +430,6 @@ body {
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo para el texto en el modal amarillo */
 .modal-aviso-warning .modal-body p {
     color: #EFD299; /* Texto en beige cálido */
 }
@@ -388,7 +445,6 @@ body {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Estilo para el texto en el modal naranja */
 .modal-aviso-orange .modal-body p {
     color: #D9A775; /* Texto en naranja cálido */
 }
@@ -404,7 +460,6 @@ body {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Estilo para el texto en el modal rojo */
 .modal-aviso-error .modal-body p {
     color: #B71C1C; /* Texto en rojo cálido */
 }
@@ -414,90 +469,91 @@ body {
     border-top: none;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo del header del modal de importación */
+/* Modal de importación */
 #importModal .modal-header {
     background-color: #8F5E3D; /* Café cálido */
     color: #FFFFFF; /* Texto blanco */
     border-bottom: 1px solid #A1887F; /* Beige cálido */
 }
 
-/* Estilo del título del modal */
 #importModal .modal-title {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Estilo del botón de cerrar del modal */
 #importModal .close {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Estilo del cuerpo del modal */
 #importModal .modal-body {
-    background-color: #F5F3F2; /* Fondo blanco cálido */
-    color: #5D4037; /* Café oscuro para el texto */
+    background-color: #F5F3F2; /* Blanco cálido */
+    color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo del formulario dentro del modal */
 #importModal .modal-body form .form-label {
     color: #8F5E3D; /* Café cálido */
 }
 
-/* Estilo del campo de entrada de archivos */
 #importModal .modal-body form .form-control {
     border: 1px solid #D7CCC8; /* Beige claro */
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo del botón de importación */
 #importModal .modal-body form .btn-primary {
     background-color: #A1887F; /* Beige cálido */
     border: none;
     color: #FFFFFF; /* Texto blanco */
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 #importModal .modal-body form .btn-primary:hover {
     background-color: #8F5E3D; /* Café cálido */
 }
 
-/*---------------------------------------------------------------------------------------*/
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    .modal-aviso .modal-body p {
+        font-size: 1rem; /* Texto más pequeño */
+    }
 
-/* Estilo del header del modal "Ver Registro" */
-#verRegistroModal .modal-header {
-    background-color: #8F5E3D; /* Café cálido */
-    color: #FFFFFF; /* Texto blanco */
-    border-bottom: 1px solid #A1887F; /* Beige cálido */
+    #importModal .modal-body {
+        padding: 10px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    #importModal .modal-body form .btn-primary {
+        font-size: 0.9rem; /* Texto más pequeño */
+        padding: 8px 12px;
+    }
 }
 
-/* Estilo del título del modal */
-#verRegistroModal .modal-title {
-    color: #FFFFFF; /* Texto blanco */
+@media (max-width: 576px) {
+    .modal-aviso .modal-body p {
+        font-size: 0.9rem; /* Texto más pequeño */
+    }
+
+    #importModal .modal-body form .btn-primary {
+        font-size: 0.8rem; /* Texto aún más pequeño */
+        padding: 6px 10px;
+    }
 }
 
-/* Estilo del botón de cerrar del modal */
-#verRegistroModal .btn-close {
-    color: #FFFFFF; /* Blanco */
-}
-
-/* Estilo del cuerpo del modal */
+/* Modal "Ver Registro" */
 #verRegistroModal .modal-body {
     background-color: #F5F3F2; /* Blanco cálido */
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo de los párrafos dentro del modal */
+/* Párrafos dentro del modal */
 #verRegistroModal .modal-body p {
     color: #8F5E3D; /* Café cálido */
 }
 
-/* Estilo de los campos de datos dentro del modal */
+/* Campos de datos dentro del modal */
 #verRegistroModal .modal-body span {
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo del botón de cerrar del modal */
+/* Botón de cerrar */
 #verRegistroModal .modal-footer .btn-secondary {
     background-color: #A1887F; /* Beige cálido */
     border: none;
@@ -509,43 +565,35 @@ body {
     background-color: #8F5E3D; /* Café cálido */
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo del header del modal "Editar Registro" */
+/* Modal "Editar Registro" */
 .modal.fade[id^="editModal"] .modal-header {
     background-color: #8F5E3D; /* Café cálido */
     color: #FFFFFF; /* Blanco */
     border-bottom: 1px solid #A1887F; /* Beige cálido */
 }
 
-/* Estilo del título del modal */
 .modal.fade[id^="editModal"] .modal-title {
     color: #FFFFFF; /* Blanco */
 }
 
-/* Estilo del botón de cerrar del modal */
 .modal.fade[id^="editModal"] .btn-close {
     color: #FFFFFF; /* Blanco */
 }
 
-/* Estilo del cuerpo del modal */
 .modal.fade[id^="editModal"] .modal-body {
     background-color: #F5F3F2; /* Blanco cálido */
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo de las etiquetas del formulario dentro del modal */
 .modal.fade[id^="editModal"] .modal-body .form-label {
     color: #8F5E3D; /* Café cálido */
 }
 
-/* Estilo del campo de entrada de texto */
 .modal.fade[id^="editModal"] .modal-body .form-control {
     border: 1px solid #D7CCC8; /* Beige claro */
     color: #5D4037; /* Café oscuro */
 }
 
-/* Estilo del botón de cerrar del modal */
 .modal.fade[id^="editModal"] .modal-footer .btn-secondary {
     background-color: #A1887F; /* Beige cálido */
     border: none;
@@ -557,7 +605,6 @@ body {
     background-color: #8F5E3D; /* Café cálido */
 }
 
-/* Estilo del botón de guardar cambios del modal */
 .modal.fade[id^="editModal"] .modal-footer .btn-primary {
     background-color: #8F5E3D; /* Café cálido */
     border: none;
@@ -569,40 +616,57 @@ body {
     background-color: #5D4037; /* Café oscuro */
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Encabezado del modal */
+/* Modal "Eliminar Registro" */
 [id^="eliminarRegistroModal"] .modal-header {
     background-color: #8F5E3D; /* Café cálido */
     color: #FFFFFF; /* Texto blanco */
     border-bottom: 1px solid #A1887F; /* Beige cálido */
 }
 
-/* Título del modal */
 [id^="eliminarRegistroModal"] .modal-title {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Botón de cerrar */
 [id^="eliminarRegistroModal"] .btn-close {
     color: #FFFFFF; /* Texto blanco */
 }
 
-/* Cuerpo del modal */
 [id^="eliminarRegistroModal"] .modal-body {
     background-color: #F5F3F2; /* Blanco cálido */
     color: #5D4037; /* Café oscuro */
 }
 
-/* Párrafos dentro del modal */
 [id^="eliminarRegistroModal"] .modal-body p {
     color: #8F5E3D; /* Café cálido */
 }
 
-/* Campos de datos dentro del modal */
 [id^="eliminarRegistroModal"] .modal-body span {
     color: #5D4037; /* Café oscuro */
     font-weight: bold;
+}
+
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    #verRegistroModal .modal-body,
+    [id^="editModal"] .modal-body,
+    [id^="eliminarRegistroModal"] .modal-body {
+        padding: 10px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-primary {
+        font-size: 0.9rem; /* Texto más pequeño */
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-primary {
+        font-size: 0.8rem; /* Reducir aún más el tamaño */
+        padding: 6px 10px; /* Ajustar padding */
+    }
 }
 
 /* Botón de cancelar */
@@ -626,12 +690,9 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Hover del botón de eliminar */
 [id^="eliminarRegistroModal"] .modal-footer .btn-danger:hover {
     background-color: #7F1A1A; /* Rojo oscuro */
 }
-
-/*---------------------------------------------------------------------------------------*/
 
 /* Header del modal */
 #agregarRegistroModal .modal-header {
@@ -687,8 +748,6 @@ body {
     background-color: #B38652; /* Dorado más oscuro */
 }
 
-/*---------------------------------------------------------------------------------------*/
-
 /* Modal Gráfico de Roles - Estilo Arbusto de Perlas */
 .roles-chart-modal .modal-content {
     background-color: #F9F6F3; /* Fondo neutral claro */
@@ -722,4 +781,27 @@ body {
 .roles-chart-modal .btn-secondary:hover {
     background-color: #AB764E; /* Hover cálido */
     border-color: #AB764E;
+}
+
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    #agregarRegistroModal .modal-body,
+    .roles-chart-modal .modal-body {
+        padding: 10px; /* Ajuste para pantallas pequeñas */
+    }
+
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-success {
+        font-size: 0.9rem; /* Texto más pequeño */
+        padding: 8px 12px; /* Ajustar padding */
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-success {
+        font-size: 0.8rem; /* Reducción adicional */
+        padding: 6px 10px; /* Ajuste en pantallas extra pequeñas */
+    }
 }

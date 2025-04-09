@@ -56,7 +56,8 @@ Route::delete('/perfil_usuario/registros/{id}', [PerfilUsuarioController::class,
 Route::post('/perfil-usuario/previsualizar-pdf', [PerfilUsuarioController::class, 'previsualizarPerfilUsuarioPDF'])->name('reporte.perfil_usuario.pdf');
 // Rutas para reportes Excel
 Route::get('/perfil-usuario/generar-excel', [PerfilUsuarioController::class, 'generarReportePerfilUsuarioExcel'])->name('reporte.perfil_usuario.excel');
-
+// Ruta para registrar datos enviados desde el ESP32
+Route::post('/registrar-desde-esp32', [PerfilUsuarioController::class, 'registrarDesdeESP32'])->name('registrar.desde.esp32');
 
 // Ruta de visitantes
 Route::get('/visitante', [VisitantesController::class, 'index'])->name('visitantes.index');

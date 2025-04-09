@@ -4,8 +4,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #F5F3F2; /* Tono claro - Arbusto de Perlas 50 */
-    color: #3B302A; /* Café Suizo 900 */
+    background-color: #F5F3F2;
+    /* Tono claro - Arbusto de Perlas 50 */
+    color: #3B302A;
+    /* Café Suizo 900 */
 }
 
 .contenedor {
@@ -15,7 +17,8 @@ body {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 20px; /* Espacio entre los elementos */
+    gap: 20px;
+    /* Espacio entre los elementos */
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
@@ -26,10 +29,12 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #8D5A4B; /* Kabul 700 */
+    background-color: #8D5A4B;
+    /* Kabul 700 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 10px 0;
     z-index: 1000;
+    /* Evitar conflictos con otros elementos */
+    padding: 10px 0;
 }
 
 .menu ul {
@@ -47,26 +52,29 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: #FFFFFF; /* Blanco puro */
+    color: #FFFFFF;
     font-weight: bold;
     padding: 10px 15px;
     transition: background-color 0.3s, transform 0.3s ease;
 }
+
 
 .menu a i {
     margin-right: 8px;
 }
 
 .menu a:hover {
-    background-color: #D7CCC8; /* Café Suizo 200 */
+    background-color: #D7CCC8;
     border-radius: 5px;
     transform: translateY(-3px);
 }
 
 /* Botón de Login */
 .menu .login-btn {
-    background-color: #D7CCC8; /* Café Suizo 200 */
-    color: #8D5A4B; /* Kabul 700 */
+    background-color: #D7CCC8;
+    /* Café Suizo 200 */
+    color: #8D5A4B;
+    /* Kabul 700 */
     border-radius: 5px;
     padding: 10px 15px;
     font-size: 0.9em;
@@ -76,83 +84,191 @@ body {
 }
 
 .menu .login-btn:hover {
-    background-color: #8D5A4B; /* Kabul 700 */
-    color: #FFFFFF; /* Blanco puro */
+    background-color: #8D5A4B;
+    /* Kabul 700 */
+    color: #FFFFFF;
+    /* Blanco puro */
     transform: translateY(-3px);
 }
 
 /* Encabezado */
 .header {
-    background-color: #8D5A4B; /* Kabul 700 */
-    color: #FFFFFF; /* Blanco puro */
+    background-color: #8D5A4B;
+    /* Kabul 700 */
+    color: #FFFFFF;
+    /* Blanco puro */
     text-align: center;
     padding: 50px 20px;
-    margin-top: 60px; /* Ajustado para compensar la altura fija del menú */
+    margin-top: 60px;
+    /* Ajustado para compensar la altura fija del menú */
 }
 
 /* Contenedor General */
 .section-presentacion {
     padding: 50px 20px;
     display: flex;
-    justify-content: space-between; /* Mantiene el texto e imagen alineados horizontalmente */
-    align-items: center; /* Alinea verticalmente los elementos */
-    background-color: #FFFFFF; /* Fondo claro */
+    flex-wrap: nowrap;
+    /* Mantiene elementos alineados horizontalmente */
+    justify-content: space-between;
+    /* Asegura que texto e imagen estén separados correctamente */
+    align-items: center;
+    /* Centra elementos verticalmente */
+    background-color: #FFFFFF;
+    /* Fondo claro */
 }
 
 .presentacion-contenedor {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Asegura que los elementos estén a los extremos */
-    align-items: center; /* Centra los elementos verticalmente */
+    flex-wrap: nowrap;
+    /* Asegura que los elementos se mantengan en la misma línea */
+    justify-content: space-between;
+    /* Asegura que los elementos estén a los extremos */
+    align-items: stretch;
+    /* Mantiene la altura igualada */
     max-width: 1200px;
-    margin: 0 auto; /* Centra el contenedor completo */
-    gap: 20px; /* Espacio uniforme entre el texto y la imagen */
+    margin: 0 auto;
+    /* Centra el contenedor completo */
+    gap: 20px;
+    /* Espacio uniforme entre el texto y la imagen */
 }
 
 /* Texto a la Izquierda */
 .texto-presentacion {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
-    max-width: 45%; /* Limita el ancho máximo */
+    flex: 0 1 45%;
+    /* Mantiene un ancho fijo del 45% */
+    max-width: 45%;
+    /* Limita el ancho máximo */
     padding: 20px;
-    background-color: #F5F5F5; /* Fondo claro para resaltar */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    color: #3B302A; /* Color de texto */
-    box-sizing: border-box; /* Asegura que el padding no altere el tamaño */
+    background-color: #F5F5F5;
+    /* Fondo claro para resaltar */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
+    color: #3B302A;
+    /* Color de texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centra el contenido verticalmente */
 }
 
+/* Encabezado del Texto */
 .texto-presentacion h2 {
-    font-size: 2rem; /* Tamaño grande para el título */
+    font-size: 2rem;
+    /* Tamaño grande para el título */
     margin-bottom: 15px;
-    color: #8F5E3D; /* Color destacado para el encabezado */
+    color: #8F5E3D;
+    /* Color destacado para el encabezado */
 }
 
+/* Párrafos */
 .texto-presentacion p {
-    font-size: 1.1rem; /* Tamaño del texto */
-    line-height: 1.8; /* Espaciado para una mejor legibilidad */
-    color: #5D4037; /* Color del texto */
+    font-size: 1.1rem;
+    /* Tamaño del texto */
+    line-height: 1.8;
+    /* Espaciado para una mejor legibilidad */
+    color: #5D4037;
+    /* Color del texto */
 }
 
 /* Imagen a la Derecha */
 .imagen-presentacion {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
-    max-width: 45%; /* Limita el ancho máximo */
+    flex: 0 1 55%;
+    /* Mantiene un ancho fijo del 55% */
+    max-width: 55%;
+    /* Limita el ancho máximo */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .imagen-presentacion img {
-    width: 100%; /* Imagen completamente responsiva */
-    height: auto; /* Mantiene las proporciones originales */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    max-width: 80%;
+    /* Ajusta el tamaño para escritorio */
+    height: auto;
+    /* Mantiene proporciones originales */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    object-fit: contain;
+    /* Evita recortes en imágenes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Sombra estilizada */
+    display: block;
+    /* Centra las imágenes y evita espacios sobrantes */
+    margin: 0 auto;
+    /* Centra la imagen horizontalmente */
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*-------- Sección 2: Representación (Texto e Imagen) --------*/
+/*--------------------------*/
+/* Media Queries */
+@media (max-width: 768px) {
+    .section-presentacion {
+        flex-wrap: wrap;
+        /* Permite que los elementos se apilen verticalmente */
+        align-items: flex-start;
+        /* Ajusta la posición vertical en dispositivos móviles */
+        gap: 20px;
+        /* Espacio uniforme entre texto e imagen */
+    }
+
+    .presentacion-contenedor {
+        flex-wrap: wrap;
+        /* Permite que los elementos se apilen verticalmente */
+        align-items: center;
+        /* Centra verticalmente los elementos */
+    }
+
+    .texto-presentacion,
+    .imagen-presentacion {
+        flex: 1 1 100%;
+        /* Ambos elementos ocupan el ancho completo */
+        max-width: 100%;
+    }
+
+    .imagen-presentacion img {
+        max-width: 100%;
+        /* Asegura que la imagen use todo el ancho disponible */
+        height: auto;
+        /* Mantiene la proporción original */
+    }
+
+    .texto-presentacion {
+        padding: 15px;
+        /* Reducir padding */
+    }
+
+    .texto-presentacion h2 {
+        font-size: 1.8rem;
+        /* Ajustar tamaño del texto */
+    }
+
+    .texto-presentacion p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .texto-presentacion,
+    .imagen-presentacion {
+        padding: 10px;
+        /* Reducir aún más el padding */
+    }
+
+    .imagen-presentacion img {
+        max-width: 100%;
+        /* Asegura que la imagen no exceda el ancho del contenedor */
+        height: auto;
+        /* Mantiene la proporción original */
+        display: block;
+        /* Previene espacios adicionales en línea */
+    }
+}
+
+/*-------- Sección 2: Representación --------*/
+
 /* Contenedor de la Sección */
 .section-representacion {
     padding: 50px 20px;
@@ -163,169 +279,250 @@ body {
     border-bottom: 1px solid #D7CCC8; /* Línea divisoria */
 }
 
+/* Contenedor Interno con fondo diferenciado */
 .representacion-contenedor {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
+    padding: 20px;
+    background-color: #FFFFFF; /* Fondo del contenedor similar a Descripción de Gráficos */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Carrusel de Imágenes a la Izquierda */
+/* Carrusel de Imágenes */
 .imagen-carrusel {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
+    flex: 0 1 45%;
     max-width: 45%;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra elegante */
-    overflow: hidden; /* Evita que algo sobresalga */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
 }
 
-/* Estilo para las Imágenes */
-.imagen-carrusel img {
-    width: 100%; /* Imagen completamente responsiva */
-    height: auto; /* Mantiene las proporciones originales */
-    border-radius: 8px; /* Bordes redondeados para las imágenes */
-}
-
-/* Texto a la Derecha */
+/* Texto con cuadro de fondo diferenciado */
 .representacion-texto {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
-    max-width: 45%;
-    color: #3B302A; /* Color de texto */
+    flex: 0 1 55%;
+    max-width: 55%;
+    background-color: #F5F5F5; /* Fondo diferente al de la sección */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Estilos para títulos y texto */
 .representacion-texto h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #8F5E3D; /* Color destacado */
+    color: #8F5E3D;
 }
 
 .representacion-texto p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #5D4037; /* Color suave */
+    color: #5D4037;
 }
+
+/*--------------------------*/
+/* Ajustes para Pantallas Medianas */
+@media (max-width: 768px) {
+    .representacion-contenedor {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .imagen-carrusel,
+    .representacion-texto {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .representacion-texto {
+        padding: 15px;
+    }
+
+    .representacion-texto h2 {
+        font-size: 1.6rem;
+    }
+
+    .representacion-texto p {
+        font-size: 1rem;
+    }
+
+    .imagen-carrusel {
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagen-carrusel .carousel-item img {
+        max-width: 90%;
+        height: 350px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* Ajustes para Pantallas Pequeñas */
+@media (max-width: 576px) {
+    .representacion-contenedor {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .representacion-texto {
+        order: 2;
+        max-width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .imagen-carrusel {
+        order: 1;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .imagen-carrusel .carousel-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*-------- Sección 3: Generación de Reportes --------*/
+
 /* Contenedor de Reportes */
 .section-reportes {
     padding: 50px 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFFF; /* Fondo blanco */
-    border-bottom: 1px solid #D7CCC8; /* Línea divisoria */
+    flex-wrap: nowrap;
+    /* Mantiene los elementos en línea horizontal */
+    justify-content: space-between;
+    /* Distribuye los elementos de manera uniforme */
+    align-items: stretch;
+    /* Mantiene altura igualada */
+    background-color: #FFFFFF;
+    /* Fondo blanco */
 }
 
-.section-reportes .contenedor-reportes {
+/* Contenedor interno */
+.contenedor-reportes {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* Evita apilamiento de elementos */
     justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 20px; /* Espacio entre los elementos */
+    /* Mantiene separación uniforme */
+    align-items: stretch;
+    /* Ajusta la altura */
+    gap: 20px;
+    /* Espacio entre elementos */
+    width: 100%;
+    padding: 20px;
+    background-color: #FFFFFF;
+    /* Fondo blanco */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra ligera */
 }
 
 /* Información de Reportes */
-.section-reportes .info-reportes {
-    flex: 1 1 40%; /* Ocupa el 40% del ancho */
-    max-width: 40%;
+.info-reportes {
+    flex: 0 1 45%;
+    /* Mantiene un ancho fijo */
+    max-width: 45%;
     padding: 20px;
-    background-color: #F5F5F5; /* Fondo claro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.section-reportes .info-reportes h2 {
-    color: #8F5E3D; /* Kabul 700 */
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.section-reportes .info-reportes p {
-    color: #5D4037; /* Café Suizo 800 */
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-/* Imagen de Reportes */
-.section-reportes .imagen-reportes {
-    flex: 1 1 55%; /* Ocupa el 55% del ancho */
+/* Carrusel de Imágenes */
+.imagen-carrusel-reportes {
+    flex: 0 1 55%;
     max-width: 55%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.section-reportes .imagen-reportes img {
-    width: 100%; /* Imagen completamente responsiva */
-    height: auto; /* Mantiene las proporciones originales */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    display: block;
-}
-
-.contenedor-reportes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 20px; /* Espacio entre elementos */
-}
-
-/* Información sobre Reportes */
-.info-reportes {
-    flex: 1 1 40%; /* Ocupa el 40% del ancho */
-    max-width: 40%;
-    height: auto; /* Elimina la altura fija */
-    padding: 20px;
-    background-color: #F5F5F5; /* Fondo claro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    display: flex; /* Habilita Flexbox */
-    flex-direction: column; /* Mantiene el contenido en columna */
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: flex-start; /* Alinea el contenido a la izquierda */
-    margin: auto 0; /* Ajusta automáticamente el margen superior e inferior */
-}
-
-.info-reportes h2 {
-    color: #8F5E3D; /* Kabul 700 */
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.info-reportes p {
-    color: #5D4037; /* Café Suizo 800 */
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-/* Carrusel de Imágenes sobre Reportes */
-.imagen-carrusel-reportes {
-    flex: 1 1 55%; /* Ocupa el 55% del ancho */
-    max-width: 55%;
+/* Estilos para imágenes del carrusel */
+.imagen-carrusel-reportes .carousel-item img {
+    width: 100%;
+    max-height: 350px;
+    /* Limita la altura para evitar alteraciones en diseño */
+    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    overflow: hidden; /* Asegura que las imágenes no se desborden */
+    object-fit: contain;
+    /* Mantiene proporción sin recortes */
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.imagen-carrusel-reportes img {
-    width: 100%; /* Imagen completamente responsiva */
-    height: auto; /* Mantiene las proporciones originales */
-    border-radius: 8px; /* Bordes redondeados */
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+    .contenedor-reportes {
+        flex-wrap: wrap;
+        /* Permite que los elementos se ajusten en varias filas */
+        align-items: center;
+    }
+
+    .imagen-carrusel-reportes,
+    .info-reportes {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .info-reportes {
+        padding: 15px;
+    }
+
+    .imagen-carrusel-reportes .carousel-item img {
+        max-width: 90%;
+        /* Ajustar tamaño en pantallas medianas */
+        height: auto;
+    }
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------------------*/
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .imagen-carrusel-reportes .carousel-item img {
+        max-width: 100%;
+        /* Ajuste al ancho completo en pantallas pequeñas */
+        height: auto;
+    }
+
+    .info-reportes {
+        padding: 10px;
+    }
+}
+
 
 /*-------- Sección 4: Visualización de Gráficos --------*/
 
@@ -333,89 +530,290 @@ body {
 .section-graficos {
     padding: 50px 20px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    /* Mantiene los elementos en una línea horizontal */
     justify-content: space-between;
-    align-items: flex-start;
-    background-color: #F5F3F2; /* Fondo claro */
+    /* Distribuye los elementos uniformemente */
+    align-items: stretch;
+    /* Mantiene la altura igualada */
+    background-color: #F5F3F2;
+    /* Fondo claro */
 }
 
+/* Contenedor interno */
 .contenedor-graficos {
-    display: flex; /* Activa flexbox */
-    flex-wrap: wrap; /* Permite líneas múltiples si es necesario */
-    justify-content: space-between; /* Separa elementos de forma uniforme */
-    align-items: center; /* Centra verticalmente los elementos */
-    gap: 20px; /* Espaciado entre elementos */
-    width: 100%; /* Se ajusta al ancho completo */
+    display: flex;
+    flex-wrap: nowrap;
+    /* Evita que los elementos se apilen */
+    justify-content: space-between;
+    /* Separa elementos de forma uniforme */
+    align-items: stretch;
+    /* Asegura que los elementos tengan alturas iguales */
+    gap: 20px;
+    /* Espacio entre elementos */
+    width: 100%;
     padding: 20px;
-    background-color: #FFFFFF; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-/* Información de Gráficos (Texto a la Derecha) */
-.info-graficos {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
-    text-align: left; /* Alinea el texto a la izquierda */
-    max-width: 45%; /* Limita el ancho máximo */
-    padding: 20px; /* Espaciado interno */
-    background-color: #F5F5F5; /* Fondo claro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-}
-
-.info-graficos h2 {
-    color: #8F5E3D; /* Color destacado */
-    font-size: 1.8rem; /* Tamaño del título */
-    margin-bottom: 15px;
-}
-
-.info-graficos p {
-    color: #5D4037; /* Color suave para el texto */
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-/* Carrusel de Imágenes (A la Izquierda) */
-.graficos-carrusel {
-    flex: 1 1 45%; /* Ocupa el 45% del ancho */
-    max-width: 45%; /* Limita el ancho máximo */
-    border-radius: 8px; /* Bordes redondeados */
-    overflow: hidden; /* Evita contenido que sobresalga */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
     background-color: #FFFFFF;
+    /* Fondo blanco */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
 }
 
-/* Estilo para Imágenes del Carrusel */
+/* Información de Gráficos */
+.info-graficos {
+    flex: 0 1 45%;
+    /* Mantiene un ancho fijo */
+    max-width: 45%;
+    padding: 20px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Carrusel de Imágenes */
+.graficos-carrusel {
+    flex: 0 1 55%;
+    max-width: 55%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    /* Fija la altura del carrusel para evitar cambios */
+}
+
+/* Estilos para imágenes del carrusel */
+.graficos-carrusel .carousel-inner {
+    min-height: 350px;
+    /* Mantiene una altura estable para evitar movimientos */
+}
+
 .graficos-carrusel .carousel-item img {
-    width: 100%; /* Imagen completamente responsiva */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 8px; /* Bordes redondeados */
-}
-
-/* Ajuste para Imagen específica 'Gráficos-Usuarios.png' */
-.carousel-inner .carousel-item img[alt="Gráfico Usuarios"] {
-    display: block; /* Imagen en bloque */
-    margin-left: auto; /* Centra horizontalmente */
-    margin-right: auto; /* Centra horizontalmente */
-    max-height: 400px; /* Altura máxima para ajustar el tamaño */
-    object-fit: contain; /* Mantiene la proporción sin recortes */
-}
-
-/* Ajuste para Imagen específica 'Gráfico IoT' */
-.carousel-inner .carousel-item img[alt="Gráfico IoT"] {
-    display: block; /* Imagen en bloque */
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 400px; /* Altura máxima */
-    object-fit: contain; /* Evita distorsiones */
-}
-
-/* Configuración General para otras Imágenes del Carrusel */
-.carousel-inner .carousel-item img {
+    width: 100%;
+    max-height: 350px;
+    /* Limita la altura para evitar alteraciones en diseño */
+    height: 350px;
+    /* Fija la altura para que todas las imágenes sean iguales */
+    border-radius: 8px;
+    object-fit: contain;
+    /* Mantiene proporción sin recortes */
     display: block;
-    margin: auto; /* Centra todas las imágenes */
-    max-width: 100%; /* No excede el ancho máximo */
-    height: auto; /* Mantiene proporción */
-    object-fit: contain; /* Evita distorsión */
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+    .contenedor-graficos {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .graficos-carrusel,
+    .info-graficos {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .info-graficos {
+        padding: 15px;
+    }
+
+    .graficos-carrusel .carousel-item img {
+        max-width: 90%;
+        height: 350px;
+        /* Mantiene el mismo tamaño */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .graficos-carrusel .carousel-item img {
+        max-width: 100%;
+        height: 350px;
+        /* Mantiene tamaño estable */
+    }
+
+    .info-graficos {
+        padding: 10px;
+    }
+}
+
+
+
+/*-------- Corrección para la Alineación de Secciones --------*/
+
+/* Ajustar todas las secciones para alinearlas automáticamente con el menú */
+.section-presentacion,
+.section-representacion,
+.section-reportes,
+.section-graficos {
+    max-width: 1200px; /* Tamaño unificado */
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Garantizar altura mínima para evitar ajustes inesperados */
+.section-presentacion,
+.section-representacion {
+    min-height: 400px; /* Se mantiene igual para todas las secciones */
+}
+
+/* Ajustar el margen superior en pantallas pequeñas */
+@media (max-width: 768px) {
+    .section-presentacion,
+    .section-representacion,
+    .section-reportes,
+    .section-graficos {
+        padding-top: 100px; /* Asegura espacio correcto en móviles */
+    }
+}
+
+/*-------- Estilos de navegación --------*/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8D5A4B;
+    padding: 15px 20px; /* Ajuste uniforme */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto; /* Ajuste automático */
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor del menú */
+.menu-contenedor {
+    max-width: 1200px; /* Tamaño igual al de otras secciones */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Lista de enlaces */
+.menu .menu-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu .menu-list li {
+    margin: 0 10px;
+}
+
+.menu .menu-list a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu .menu-list a:hover {
+    background-color: #D7CCC8;
+    border-radius: 5px;
+}
+
+/* Botón de menú para dispositivos móviles */
+.menu-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Estilos del menú desplegable */
+.menu-dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #8D5A4B;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.menu-dropdown.active {
+    transform: translateY(0);
+    opacity: 1;
+    display: flex;
+}
+
+.menu-dropdown a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 12px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-dropdown a:hover {
+    background-color: #D7CCC8;
+}
+
+/*--------------------------*/
+/* Ajustes de alineación automática para todas las secciones */
+.section-presentacion,
+.section-representacion,
+.section-reportes,
+.section-graficos {
+    scroll-margin-top: 80px; /* Ajuste automático para alineación con el menú */
+}
+
+/* Ajustar en pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu .menu-list {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .section-presentacion,
+    .section-representacion,
+    .section-reportes,
+    .section-graficos {
+        scroll-margin-top: 100px; /* Ajuste para móviles */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .menu {
+        padding: 10px 15px; /* Ajuste para móviles */
+    }
+
+    .menu-contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
 }

@@ -9,7 +9,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Http;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Log;
 
 class ReportesController extends Controller

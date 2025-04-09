@@ -1,12 +1,13 @@
 /* Navbar */
 .navbar {
     background-color: #409C8C; /* Tono 500 de la paleta */
-    padding: 10px 30px; /* Aumenta el padding para separar los elementos de los bordes */
+    padding: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    border-bottom: 2px solid #2D7468; /* Línea inferior */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #2D7468;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -21,7 +22,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
-    margin-left: 10px; /* Separación de la izquierda */
+    margin-left: 10px;
 }
 
 .navbar-brand:hover {
@@ -30,6 +31,7 @@
 
 .navbar-brand img {
     margin-right: 10px;
+    height: 40px; /* Ajuste de altura para pantallas pequeñas */
 }
 
 .navbar-nav {
@@ -38,6 +40,7 @@
     list-style: none;
     margin: 0;
     gap: 20px; /* Espaciado entre botones */
+    flex-wrap: wrap; /* Ajustar enlaces en varias líneas en pantallas pequeñas */
 }
 
 .nav-item {
@@ -57,16 +60,17 @@
 }
 
 .nav-link i {
-    margin-right: 8px; /* Espaciado entre icono y texto */
+    margin-right: 8px;
     font-size: 1.2rem;
 }
 
 .nav-link:hover {
     background-color: #55AC9B; /* Tono 400 de la paleta */
-    color: #FFFFFF; /* Texto blanco */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Navbar Toggler */
 .navbar-toggler {
     background-color: #2D7468; /* Tono 600 */
     border: none;
@@ -74,7 +78,7 @@
     padding: 6px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-right: 10px; /* Separación de la derecha */
+    margin-right: 10px;
 }
 
 .navbar-toggler:hover {
@@ -87,10 +91,42 @@
     height: 30px;
 }
 
-/* Responsive - Centrar enlaces en pantallas pequeñas */
+/* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Cambiar de fila a columna */
+        align-items: flex-start; /* Alinear al inicio */
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px; /* Espaciado adicional en pantallas pequeñas */
+    }
+
     .navbar-nav {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: column; /* Alinear enlaces en columna */
+        align-items: flex-start;
+        gap: 10px; /* Espaciado entre los enlaces */
+        width: 100%; /* Ocupar todo el ancho */
+    }
+
+    .nav-link {
+        width: 100%; /* Hacer que los enlaces sean tan anchos como el contenedor */
+        text-align: left; /* Alinear texto a la izquierda */
+    }
+}
+
+/* Media Queries para pantallas extra pequeñas */
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 30px; /* Reducir tamaño del logotipo */
+    }
+
+    .nav-link {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+        padding: 6px 10px; /* Ajustar espacio interno */
+    }
+
+    .navbar-toggler {
+        padding: 4px 8px; /* Reducir tamaño del botón de colapsar */
     }
 }

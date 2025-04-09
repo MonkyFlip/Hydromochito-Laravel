@@ -1,212 +1,211 @@
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos para el Navigation Bar */
+/* Estilos generales para el Navigation Bar */
 nav.navbar {
-    background-color: #a16b48; /* Café cálido (Color principal del fondo) */
-    padding: 10px 20px; /* Espaciado interno */
+    background-color: #a16b48;
+    /* Café cálido */
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    flex-wrap: wrap;
+    /* Permitir que los elementos se ajusten */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/*---------------------------------------------------------------------------------------*/
 
 /* Estilos para el logotipo y nombre de la PMV */
 .navbar-brand {
     display: flex;
     align-items: center;
-    color: #F5F3F2; /* Blanco cálido */
-    font-size: 1.5em; /* Tamaño de fuente */
-    font-weight: bold; /* Grosor de la fuente */
-    text-decoration: none; /* Quitar subrayado */
+    color: #F5F3F2;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .navbar-brand img {
-    height: 60px; /* Tamaño del logotipo */
-    margin-right: 10px; /* Espacio entre el logotipo y el texto */
+    height: 50px;
+    margin-right: 10px;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/*---------------------------------------------------------------------------------------*/
-/* Barra de búsqueda */
+/* Estilos para la barra de búsqueda */
 .navbar form.d-flex {
-    background-color: #EDE9E6; /* Beige pastel */
-    border: 1px solid #D7CCC8; /* Borde café claro */
+    background-color: #EDE9E6;
+    /* Beige pastel */
+    border: 1px solid #D7CCC8;
     border-radius: 5px;
     padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Permitir ajuste en pantallas pequeñas */
 }
 
-/* Campo de texto */
 .navbar form.d-flex input {
     border: none;
     outline: none;
     padding: 5px;
     font-size: 16px;
-    color: #5D4037; /* Café profundo */
+    color: #5D4037;
+    /* Café profundo */
+    flex: 1;
+    /* Asegurar que el campo ocupe espacio disponible */
+    margin-right: 5px;
 }
 
-/* Botón de buscar */
 .navbar form.d-flex button {
-    background-color: #6D4C41; /* Café vibrante */
+    background-color: #8D6E63;
+    /* Café vibrante */
     border: none;
     color: #FFFFFF;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Botón de reset */
+.navbar form.d-flex button[type="reset"] {
+    background-color: #D32F2F;
+    /* Rojo vibrante */
+    margin-left: 5px;
 }
 
 /* Hover y Active */
 .navbar form.d-flex button:hover {
     transform: translateY(-2px);
-    background-color: #5D4037; /* Café profundo */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el cursor */
+    background-color: #795548;
+    /* Café oscuro */
 }
 
 .navbar form.d-flex button:active {
     transform: translateY(2px);
-    background-color: #4E342E; /* Café oscuro */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original al presionar */
+    background-color: #5D4037;
 }
-
-/* Botón de reset */
-.navbar form.d-flex a#clear-filter {
-    display: inline-block; /* Asegurar que sea tratable como botón */
-    background-color: #D32F2F; /* Rojo intenso fijo */
-    color: #FFFFFF; /* Blanco para el texto */
-    padding: 5px 10px; /* Mismo tamaño que el botón de buscar */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer;
-    text-align: center; /* Centrar el texto */
-    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-    margin-left: 5px; /* Separación respecto al botón de buscar */
-    text-decoration: none; /* Quitar subrayado */
-}
-
-/* Hover para el botón de reset */
-.navbar form.d-flex a#clear-filter:hover {
-    transform: translateY(-2px); /* Elevación al pasar el cursor */
-    background-color: #5D4037; /* Café profundo */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el cursor */
-}
-
-/* Active para el botón de reset */
-.navbar form.d-flex a#clear-filter:active {
-    transform: translateY(2px); /* Bajar al presionar */
-    background-color: #4E342E; /* Café oscuro */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original al presionar */
-}
-
-/*---------------------------------------------------------------------------------------*/
 
 /* Estilos para los botones del menú */
 .navbar-nav .nav-item .nav-link {
-    color: #FAF0E6; /* Blanco cálido */
-    font-size: 16px; /* Tamaño de fuente */
-    margin-left: 20px; /* Espacio entre los enlaces del menú */
-    text-decoration: none; /* Quitar subrayado */
-    transition: transform 0.2s; /* Animación de transición */
+    color: #F5F3F2;
+    font-size: 16px;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: transform 0.2s;
 }
 
+/* Hover y Active en botones */
 .navbar-nav .nav-item .nav-link:hover {
-    text-decoration: none; /* Quitar subrayado */
-    transform: translateY(-2px); /* Mover hacia arriba */
-    color: #FFD7B5; /* Melocotón pálido */
+    transform: translateY(-2px);
 }
 
 .navbar-nav .nav-item .nav-link:active {
-    transform: translateY(2px); /* Mover hacia abajo */
+    transform: translateY(2px);
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo para el contenedor del saludo personalizado */
+/* Contenedor del saludo personalizado */
 .navbar-text {
-    display: inline-block;
     font-size: 16px;
     font-weight: bold;
-    color: #FFFFFF; /* Blanco */
-    background-color: #ad8c76; /* Café cálido */
+    color: #ffffff;
+    background-color: #ad8c76;
     padding: 10px 15px;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
     text-align: center;
-    margin-right: 20px; /* Separación a la derecha */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transición fluida */
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Animación en el contenedor completo al pasar el cursor */
+/* Hover en el saludo */
 .navbar-text:hover {
-    background-color: #A1887F; /* Beige cálido */
-    transform: translateY(-5px) scale(1.05); /* Elevar y agrandar ligeramente */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+    background-color: #A1887F;
+    transform: translateY(-5px) scale(1.05);
 }
 
-/* Restaurar al estado original al quitar el cursor */
-.navbar-text:active {
-    transform: translateY(0) scale(1); /* Regresar a su tamaño original */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original */
-}
-
-/* Quitar subrayado del texto */
-.navbar-text span {
-    text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Asegurar que el texto sea tratable como bloque */
-}
-
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos para los menús desplegables */
+/* Menús desplegables */
 .dropdown-menu {
-    background-color: #FBE9E7; /* Rosa beige */
-    border: 1px solid #FFAB91; /* Rosa coral */
+    background-color: #FBE9E7;
+    border: 1px solid #FFAB91;
 }
 
 .dropdown-menu .dropdown-item {
-    color: #5D4037; /* Café oscuro */
-    transition: transform 0.2s ease, background-color 0.3s ease; /* Animación de transición */
+    color: #5D4037;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #FFE0B2; /* Beige pastel */
-    color: #3E2723; /* Café chocolate */
-    transform: translateY(-2px); /* Mover hacia arriba */
+    background-color: #FFE0B2;
+    color: #3E2723;
 }
 
-.dropdown-menu .dropdown-item:active {
-    transform: translateY(2px); /* Mover hacia abajo */
-}
-
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos específicos para los botones de Exportar Excel */
+/* Botones específicos de Excel */
 .dropdown-item-excel {
-    color: #388E3C; /* Verde bosque */
+    color: #00796b;
 }
 
 .dropdown-item-excel:hover {
-    background-color: #4CAF50; /* Verde vibrante */
-    color: #FFFFFF; /* Blanco */
+    background-color: green;
+    color: white;
 }
 
 .dropdown-item-excel:hover i {
-    color: #FFFFFF;
+    color: white;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos específicos para los botones de Exportar PDF */
+/* Botones específicos de PDF */
 .dropdown-item-pdf {
-    color: #D32F2F; /* Rojo vibrante */
+    color: red;
 }
 
 .dropdown-item-pdf:hover {
-    background-color: #B71C1C; /* Rojo oscuro */
+    background-color: red;
     color: white;
 }
 
 .dropdown-item-pdf:hover i {
     color: white;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    nav.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-text {
+        font-size: 14px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    .navbar-text {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    nav.navbar {
+        padding: 10px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+        margin-left: 0;
+    }
 }

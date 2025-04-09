@@ -16,22 +16,37 @@
 <body>
     <!-- Menú de Navegación -->
     <nav class="menu">
-        <ul>
+        <div class="logo">
+            <a href="#header" style="color: #FFFFFF; text-decoration: none; font-weight: bold;">Hydromochito</a>
+        </div>
+        <button class="menu-toggle" onclick="toggleDropdown()"><i class="fas fa-bars"></i></button>
+        <ul class="menu-list">
             <li><a href="#header"><i class="fas fa-arrow-up"></i> Inicio</a></li>
             <li><a href="#presentacion"><i class="fas fa-info-circle"></i> Presentación</a></li>
             <li><a href="#representacion"><i class="fas fa-list-alt"></i> Registros</a></li>
             <li><a href="#reportes"><i class="fas fa-file-alt"></i> Reportes</a></li>
             <li><a href="#graficos"><i class="fas fa-chart-pie"></i> Gráficos</a></li>
-            <!-- Botón de Perfil Usuario (Sólo visible si el usuario está logueado) -->
             @if(Session::has('user_email'))
             <li><a href="{{ route('perfil_usuario.index') }}"><i class="fas fa-user"></i> Perfil Usuario</a></li>
             @endif
-            <li><a href="/login" class="login-btn"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+            <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
         </ul>
+
+        <!-- Menú desplegable -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <a href="#header"><i class="fas fa-arrow-up"></i> Inicio</a>
+            <a href="#presentacion"><i class="fas fa-info-circle"></i> Presentación</a>
+            <a href="#representacion"><i class="fas fa-list-alt"></i> Registros</a>
+            <a href="#reportes"><i class="fas fa-file-alt"></i> Reportes</a>
+            <a href="#graficos"><i class="fas fa-chart-pie"></i> Gráficos</a>
+            @if(Session::has('user_email'))
+            <a href="{{ route('perfil_usuario.index') }}"><i class="fas fa-user"></i> Perfil Usuario</a>
+            @endif
+            <a href="/login"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+        </div>
     </nav>
 
     <header id="header" class="header">
-        <!-- Añadido ID al header -->
         <h1>Hydromochito</h1>
         <p>Un sistema diseñado para simplificar la gestión de registros, la generación de reportes y la visualización de
             datos clave, optimizando procesos de forma precisa y eficiente.</p>
@@ -106,6 +121,7 @@
                         adaptan a las necesidades de tu negocio. Simplifica tus procesos y ahorra tiempo con esta
                         herramienta eficiente y accesible.</p>
                 </div>
+
                 <!-- Carrusel sobre Reportes -->
                 <div class="imagen-carrusel-reportes representacion" data-aos="fade-left">
                     <div id="carruselReportes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -122,6 +138,7 @@
             </div>
         </section>
 
+        <!-- Sección 4: Visualización de Gráficos -->
         <section id="graficos" class="section section-graficos">
             <div class="contenedor-graficos">
                 <!-- Carrusel de Imágenes a la Izquierda -->
@@ -165,6 +182,21 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
     AOS.init(); // Inicializar AOS
+
+    // Mostrar y ocultar el menú desplegable con animación
+    function toggleDropdown() {
+        const menuDropdown = document.getElementById('menuDropdown');
+        menuDropdown.classList.toggle('active');
+    }
+
+    // Cerrar el menú al hacer clic fuera de él
+    document.addEventListener('click', function(event) {
+        const menuDropdown = document.getElementById('menuDropdown');
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (!menuDropdown.contains(event.target) && event.target !== menuToggle) {
+            menuDropdown.classList.remove('active');
+        }
+    });
 
     // Smooth scrolling para las secciones
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

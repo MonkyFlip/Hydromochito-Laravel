@@ -89,10 +89,10 @@ class PerfilUsuarioController extends Controller
     {
         // Validación
         $request->validate([
-            'flujo_agua' => 'required|numeric',
-            'nivel_agua' => 'required|numeric',
-            'temp' => 'required|numeric',
-            'energia' => 'required|string',
+            'flujo_agua' => 'required|numeric|min:0', // Debe ser mayor o igual a 0
+            'nivel_agua' => 'required|numeric|min:0', // Debe ser mayor o igual a 0
+            'temp' => 'required|numeric', // Permite valores negativos
+            'energia' => 'required|string', // Este campo no necesita restricciones numéricas
         ]);
 
         // Obtén el usuario autenticado
@@ -211,12 +211,6 @@ class PerfilUsuarioController extends Controller
         return response()->download($filePath, $fileName)->deleteFileAfterSend(true);
     }
 
-    /**
-     * Limpiar los datos enviados o recibidos para el reporte.
-     *
-     * @param array $datos
-     * @return array
-     */
     private function limpiarDatos(array $datos)
     {
         return array_map(function ($fila) {
@@ -228,5 +222,94 @@ class PerfilUsuarioController extends Controller
                 'estado' => $fila['estado'] ?? 'N/A',
             ];
         }, $datos);
+    }
+    public function registrarDesdeESP32(Request $request)
+    {
+        try {
+            // Verificar si el usuario está autenticado
+            if (!Session::has('authenticated') || !Session::get('authenticated')) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Debe iniciar sesión para registrar datos.',
+                ]);
+            }
+
+            // Obtener el email del usuario desde la sesión
+            $userEmail = Session::get('user_email');
+
+            // Buscar el usuario en la base de datos
+            $usuario = DB::table('tb_usuarios')->where('email', $userEmail)->first();
+
+            if (!$usuario) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se encontró un usuario válido. Verifica tus credenciales.',
+                ]);
+            }
+
+            // Registrar el rol del usuario en los logs (opcional, para depuración)
+            $rol = $usuario->id_rol == 1 ? 'Admin' : ($usuario->id_rol == 2 ? 'Usuario' : 'Sin Rol');
+            Log::info("Usuario autenticado: {$usuario->nombre}, Rol: {$rol}");
+
+            $esp32Ip = "192.168.137.70";
+
+            // Conexión al ESP32
+            $response = Http::timeout(10)->get("http://{$esp32Ip}/mandarDatos");
+
+            if ($response->successful()) {
+                $data = $response->json();
+
+                // Validar los datos recibidos
+                if (
+                    !isset($data['flujo_agua'], $data['nivel_agua'], $data['temp'], $data['energia']) ||
+                    is_null($data['flujo_agua']) || is_null($data['nivel_agua']) || is_null($data['temp']) ||
+                    !in_array($data['energia'], ['solar', 'electricidad'])
+                ) {
+                    Log::warning('Datos incompletos o inválidos recibidos del ESP32.');
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Los datos recibidos del ESP32 son incompletos o inválidos. Valida el formato.',
+                    ]);
+                }
+
+                // Extraer datos del ESP32
+                $flujoAgua = $data['flujo_agua'];
+                $nivelAgua = $data['nivel_agua'];
+                $temperatura = $data['temp'];
+                $energia = $data['energia'];
+
+                Log::info("Datos validados: flujo_agua=$flujoAgua, nivel_agua=$nivelAgua, temp=$temperatura, energia=$energia");
+
+                // Insertar en la base de datos
+                DB::table('tb_registros_iot')->insert([
+                    'flujo_agua' => $flujoAgua,
+                    'nivel_agua' => $nivelAgua,
+                    'temp' => $temperatura,
+                    'energia' => $energia,
+                    'id_usuario' => $usuario->id_usuario, // ID del usuario autenticado
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+
+                Log::info('Datos registrados exitosamente en la base de datos.');
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Datos registrados correctamente.',
+                ]);
+            } else {
+                Log::error('No se pudo obtener datos del ESP32. Respuesta HTTP no exitosa.');
+                return response()->json([
+                    'success' => false,
+                    'message' => 'El ESP32 no devolvió una respuesta exitosa. Revisa la conexión.',
+                ]);
+            }
+        } catch (\Exception $e) {
+            Log::error('Error al registrar datos desde ESP32: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error inesperado: ' . $e->getMessage(),
+            ]);
+        }
     }
 }

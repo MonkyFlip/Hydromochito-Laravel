@@ -95,19 +95,29 @@
             <div class="tabla-contenedor">
                 <h2 class="tabla-titulo text-center">Registros de Hydromochito</h2>
 
-                <div class="d-flex justify-content-start mb-3">
+                <!-- Contenedor de los botones -->
+                <div class="botones-contenedor">
                     <!-- Botón para abrir el Modal -->
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarRegistroModal">
+                    <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#agregarRegistroModal">
                         <i class="bi bi-plus-circle"></i> Agregar Registro
                     </button>
+
+                    <!-- Botón para registrar datos desde el ESP32 manualmente -->
+                    <form method="POST" action="{{ route('registrar.desde.esp32') }}">
+                        @csrf
+                        <button type="submit" class="btn-registrar-hydromochito">
+                            <i class="bi bi-cloud-arrow-down"></i> Registrar desde Hydromochito
+                        </button>
+                    </form>
                 </div>
 
+                <!-- Tabla de registros -->
                 <div class="table-responsive">
                     <div class="tabla-contenedor">
                         <table id="tabla-perfil-usuario" class="tabla-niagara">
                             <thead>
                                 <tr>
-                                    <th class="hidden-column">ID</th> <!-- Ocultar visualmente -->
+                                    <th class="hidden-column">ID</th>
                                     <th>Flujo de Agua</th>
                                     <th>Nivel de Agua</th>
                                     <th>Temperatura</th>
@@ -119,7 +129,6 @@
                                 @forelse($registros as $registro)
                                 <tr>
                                     <td class="hidden-column">{{ $registro->id_registro }}</td>
-                                    <!-- Ocultar visualmente -->
                                     <td>{{ $registro->flujo_agua }}</td>
                                     <td>{{ $registro->nivel_agua }}</td>
                                     <td>{{ $registro->temp }}°C</td>
@@ -146,7 +155,9 @@
                 <div class="d-flex justify-content-center pagination-container">
                     {{ $registros->withQueryString()->onEachSide(1)->links('pagination::bootstrap-5', ['pageName' => 'page_registros']) }}
                 </div>
+            </div>
         </main>
+
 
         <!-- Modal Agregar Registro -->
         <div class="modal fade" id="agregarRegistroModal" tabindex="-1" aria-labelledby="agregarRegistroLabel"
@@ -254,6 +265,54 @@
             </div>
         </div>
 
+        <!-- Modal de Éxito -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #409C8C; color: #FFFFFF;">
+                        <!-- Color 500 de Niagara -->
+                        <h5 class="modal-title" id="successModalLabel">¡Registro Exitoso!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" style="background-color: #D7F0E9; color: #234C46;">
+                        <!-- Color 100 de Niagara -->
+                        Los datos han sido registrados correctamente en la base de datos.
+                    </div>
+                    <div class="modal-footer" style="background-color: #409C8C; color: #FFFFFF;">
+                        <!-- Color 500 -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #285D56; border-color: #285D56;">Cerrar</button>
+                        <button type="button" class="btn btn-primary"
+                            style="background-color: #55AC9B; border-color: #55AC9B;"
+                            onclick="location.reload();">Actualizar Página</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Error -->
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #E63946; color: #FFFFFF;">
+                        <!-- Color de error (rojo) -->
+                        <h5 class="modal-title" id="errorModalLabel">¡Error en el Registro!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" style="background-color: #F8D7DA; color: #721C24;">
+                        <!-- Color de error claro -->
+                        Ocurrió un error al intentar registrar los datos en la base de datos. Por favor, inténtelo de
+                        nuevo.
+                    </div>
+                    <div class="modal-footer" style="background-color: #E63946; color: #FFFFFF;">
+                        <!-- Color de error -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #C82333; border-color: #C82333;">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
@@ -284,6 +343,39 @@ document.addEventListener('DOMContentLoaded', function() {
             formEliminar.action = actionUrl;
         });
     });
+});
+</script>
+<script>
+document.querySelector('.btn-registrar-hydromochito').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevenir envío tradicional del formulario
+
+    const form = event.target.closest('form');
+    fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Mostrar el modal de éxito
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            } else {
+                // Mostrar el modal de error con mensaje detallado
+                const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                document.querySelector('#errorModal .modal-body').textContent = data.message ||
+                    'Ocurrió un error inesperado.';
+                errorModal.show();
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+            // Mostrar el modal de error con información del problema
+            const errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+            document.querySelector('#errorModal .modal-body').textContent =
+                `Error en la solicitud: ${error.message || 'Ocurrió un error inesperado.'}`;
+            errorModal.show();
+        });
 });
 </script>
 

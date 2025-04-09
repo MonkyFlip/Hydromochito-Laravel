@@ -1,52 +1,51 @@
-/* Estilos para el Navigation Bar */
+/* Estilos generales para el Navigation Bar */
 nav.navbar {
-    background-color: #6a7bb6; /* Color de fondo */
-    padding: 10px 20px; /* Espaciado interno */
+    background-color: #6a7bb6;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/*---------------------------------------------------------------------------------------*/
 
 /* Estilos para el logotipo y nombre de la PMV */
 .navbar-brand {
     display: flex;
     align-items: center;
-    color: #ffffff; /* Color del texto */
-    font-size: 1.5em; /* Tamaño de fuente */
-    font-weight: bold; /* Grosor de la fuente */
-    text-decoration: none; /* Quitar subrayado */
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .navbar-brand img {
-    height: 60px; /* Tamaño del logotipo */
-    margin-right: 10px; /* Espacio entre el logotipo y el texto */
+    height: 50px;
+    margin-right: 10px;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Barra de búsqueda */
+/* Estilos para la barra de búsqueda */
 .navbar form.d-flex {
-    background-color: #e3f2fd; /* Azul claro pastel */
-    border: 1px solid #90caf9; /* Borde azul claro */
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
     border-radius: 5px;
     padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap; /* Permitir ajuste en pantallas pequeñas */
 }
 
-/* Campo de texto */
 .navbar form.d-flex input {
     border: none;
     outline: none;
     padding: 5px;
     font-size: 16px;
-    color: #1565c0; /* Azul intenso */
+    color: #1565c0;
+    flex: 1; /* Asegurar que el campo ocupe espacio disponible */
+    margin-right: 5px;
 }
 
-/* Botón de buscar */
 .navbar form.d-flex button {
-    background-color: #42a5f5; /* Azul vibrante */
+    background-color: #42a5f5;
     border: none;
     color: #ffffff;
     padding: 5px 10px;
@@ -57,103 +56,87 @@ nav.navbar {
 
 /* Botón de reset */
 .navbar form.d-flex button[type="reset"] {
-    background-color: #ef5350; /* Rojo suave */
+    background-color: #ef5350;
     margin-left: 5px;
 }
 
 /* Hover y Active */
 .navbar form.d-flex button:hover {
     transform: translateY(-2px);
-    background-color: #1e88e5; /* Azul profundo */
+    background-color: #1e88e5;
 }
 
 .navbar form.d-flex button:active {
     transform: translateY(2px);
-    background-color: #1565c0; /* Azul más oscuro */
+    background-color: #1565c0;
 }
-
-/*---------------------------------------------------------------------------------------*/
 
 /* Estilos para los botones del menú */
 .navbar-nav .nav-item .nav-link {
-    color: #ffffff; /* Color del texto */
-    font-size: 16px; /* Tamaño de fuente */
-    margin-left: 20px; /* Espacio entre los enlaces del menú */
-    text-decoration: none; /* Quitar subrayado */
-    transition: transform 0.2s; /* Animación de transición */
+    color: #ffffff;
+    font-size: 16px;
+    margin: 10px 0; /* Espaciado para pantallas pequeñas */
+    text-decoration: none;
+    transition: transform 0.2s;
 }
 
+/* Enlaces con hover y active */
 .navbar-nav .nav-item .nav-link:hover {
-    text-decoration: none; /* Quitar subrayado */
-    transform: translateY(-2px); /* Mover hacia arriba */
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
 .navbar-nav .nav-item .nav-link:active {
-    transform: translateY(2px); /* Mover hacia abajo */
+    transform: translateY(2px);
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo para el contenedor del saludo personalizado */
+/* Contenedor del saludo personalizado */
 .navbar-text {
-    display: inline-block;
     font-size: 16px;
     font-weight: bold;
-    color: #ffffff; /* Blanco */
-    background-color: #6c80ce; /* Azul intenso */
+    color: #ffffff;
+    background-color: #6c80ce;
     padding: 10px 15px;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
     text-align: center;
-    margin-right: 20px; /* Separación a la derecha */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transición fluida */
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Animación en el contenedor completo al pasar el cursor */
+/* Hover en el saludo */
 .navbar-text:hover {
-    background-color: #6c80ce; /* Fondo Azul intenso */
-    transform: translateY(-5px) scale(1.05); /* Elevar y agrandar ligeramente */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+    background-color: #6c80ce;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Restaurar al estado original al quitar el cursor */
-.navbar-text:active {
-    transform: translateY(0) scale(1); /* Regresar a su tamaño original */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra original */
-}
-
-/* Quitar subrayado del texto */
 .navbar-text span {
-    text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Asegurar que el texto sea tratable como bloque */
+    text-decoration: none;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos para los menús desplegables */
+/* Menús desplegables */
 .dropdown-menu {
-    background-color: #E3F2FD; /* Azul pastel claro */
-    border: 1px solid #BBDEFB; /* Borde azul claro */
+    background-color: #E3F2FD;
+    border: 1px solid #BBDEFB;
 }
 
 .dropdown-menu .dropdown-item {
-    color: #1565C0; /* Azul oscuro */
-    transition: transform 0.2s ease, background-color 0.3s ease; /* Animación de transición */
+    color: #1565C0;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #BBDEFB; /* Fondo azul pastel claro */
-    color: #0D47A1; /* Azul profundo */
-    transform: translateY(-2px); /* Mover hacia arriba */
+    background-color: #BBDEFB;
+    color: #0D47A1;
+    transform: translateY(-2px);
 }
 
 .dropdown-menu .dropdown-item:active {
-    transform: translateY(2px); /* Mover hacia abajo */
+    transform: translateY(2px);
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilo para mostrar el submenú cuando se agrega la clase 'show' */
+/* Submenús */
 .dropdown-submenu .dropdown-menu {
     display: none;
 }
@@ -162,11 +145,9 @@ nav.navbar {
     display: block;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos específicos para los botones de Exportar Excel */
+/* Botones específicos de Excel */
 .dropdown-item-excel {
-    color: #00796b; /* Color del texto verde oscuro */
+    color: #00796b;
 }
 
 .dropdown-item-excel:hover {
@@ -178,11 +159,9 @@ nav.navbar {
     color: white;
 }
 
-/*---------------------------------------------------------------------------------------*/
-
-/* Estilos específicos para los botones de Exportar PDF */
+/* Botones específicos de PDF */
 .dropdown-item-pdf {
-    color: red; /* Color del texto rojo */
+    color: red;
 }
 
 .dropdown-item-pdf:hover {
@@ -192,4 +171,52 @@ nav.navbar {
 
 .dropdown-item-pdf:hover i {
     color: white;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    nav.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;
+        font-size: 1.2em; /* Ajustar tamaño en pantallas pequeñas */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-text {
+        font-size: 14px; /* Reducir tamaño */
+        margin-right: 0; /* Eliminar margen derecho */
+        margin-bottom: 10px; /* Añadir espacio inferior */
+    }
+
+    .dropdown-menu {
+        width: 100%; /* Asegurar que ocupe toda la pantalla */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        height: 40px; /* Reducir tamaño del logotipo */
+    }
+
+    .navbar-text {
+        font-size: 12px;
+        padding: 8px 10px; /* Ajustar espaciado */
+    }
+
+    nav.navbar {
+        padding: 10px; /* Reducir espacio interno */
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 14px; /* Reducir tamaño del texto */
+        margin-left: 0;
+    }
 }
